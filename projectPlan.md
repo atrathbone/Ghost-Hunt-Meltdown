@@ -25,15 +25,7 @@ nice to have:
 -implement pathfinding algorithm. 
  
 
+structure: 
 
-
-
-main---game---other individual objects
-
-classes: 
--game---renders everything---
--levels (stored as 2d arrays)---containing characters detailing what is rendered in each square at load time. 
--wall
--player
--enemy
--projectile
+main---game---player
+          |---

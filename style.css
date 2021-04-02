@@ -1,8 +1,9 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background-color: blueviolet;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   color: chartreuse;
   display: flex;
   flex-direction: column;
@@ -13,12 +14,32 @@ canvas {
   display: block;
 }
 
+.info {
+  padding: 50px;
+}
+
+.display {
+  display: flex;
+  flex-direction: row;
+}
+
 .info-display {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   color: red;
   height: 300px;
   border: 5px solid red;
   border-radius: 25px;
+  box-shadow: 5px 10px red;
   background-color: blue;
+  padding: 0 30px;
+}
+
+.how-to {
+  font-family: "Times New Roman", Times, serif;
+  color: chartreuse;
+  height: 300px;
+  border: 5px solid chartreuse;
+  border-radius: 25px;
+  box-shadow: 5px 10px chartreuse;
   padding: 0 30px;
 }
