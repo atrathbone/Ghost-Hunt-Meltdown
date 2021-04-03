@@ -25,18 +25,20 @@ nice to have:
 -implement pathfinding algorithm. 
  
 
-structure: 
+plan :
+-get background and player rendered on screen-DONE
+-get player to move 
+-constrain the movement within the frame of the image
+-add boxes and dont allow player to walk thorough them 
+-add static ghost and mark player as spotted when in line of sight
+-allow for boxes to be blocking line of sight
+-change fps to 30 and create a frame counter for movement/ animation
+-make ghosts move/change direction facing
+-create a fail state for when the player is seen (game should reset)
+-create win state for when player reaches the door
+-animate sprites 
+-create a level loader to load different level configurations and wire it up to win state
+-add sound
+-
 
-main- 
-
-game- 
-count frames 
-divide frames for animation 
-
-
-player- 
-move
-animate
-
-notes:
-player states stored in object?
+ 

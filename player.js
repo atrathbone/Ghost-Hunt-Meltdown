@@ -1,9 +1,15 @@
 class Player {
     constructor() {
-        this.animation = new Animation();
-        // this.testImage = this.animation.
+        this.xPos;
+        this.yPos;
     }
-    draw() {
+    setup(initialXPos,initialYPos) {
+        this.xPos = initialXPos || 50;
+        this.yPos = initialYPos || 50;
+    }
 
+    draw() {
+        image(game.playerImage, this.xPos, this.yPos, 50, 50)
+        //console.log('player draw called')
     }
 }

@@ -1,13 +1,19 @@
 class Game {
     constructor() {
-        this.animation = new Animation();
+        this.player;
+        this.backgroundImage;
+        this.playerImage;
+    }
+    setup() {
         this.player = new Player();
+        this.player.setup(100,250);
     }
     preLoad() {
-        this.animation.preLoad();
+        this.backgroundImage = loadImage('assets/individual-images/floor.png');
+        this.playerImage = loadImage('assets/individual-images/player/playerDown1.png');
     }
     draw() {
-        //here the rendering order is established
+        image(this.backgroundImage, 0, 0, width, height)
         this.player.draw();
     }
 }
