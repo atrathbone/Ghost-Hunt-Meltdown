@@ -27,5 +27,16 @@ nice to have:
 
 structure: 
 
-main---game---player
-          |---
+main- 
+
+game- 
+count frames 
+divide frames for animation 
+
+
+player- 
+move
+animate
+
+notes:
+player states stored in object?
