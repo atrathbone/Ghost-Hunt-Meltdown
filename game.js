@@ -7,6 +7,7 @@ class Game {
         this.animation.preLoad();
     }
     draw() {
+        //here the rendering order is established
         this.player.draw();
     }
 }
