@@ -4,8 +4,8 @@ class Player {
         this.yPos;
     }
     setup(initialXPos,initialYPos) {
-        this.xPos = initialXPos || 50;
-        this.yPos = initialYPos || 50;
+        this.xPos = initialXPos || 0;
+        this.yPos = initialYPos || 0;
     }
 
     draw() {

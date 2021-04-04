@@ -6,7 +6,7 @@ class Game {
     }
     setup() {
         this.player = new Player();
-        this.player.setup(100,250);
+        this.player.setup(0,0);
     }
     preLoad() {
         this.backgroundImage = loadImage('assets/individual-images/floor.png');
