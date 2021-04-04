@@ -25,21 +25,16 @@ function preload() {
 function keyPressed() {
   switch (keyCode) {
     case LEFT_ARROW:
-      //player.moveLeft();
-      //currentFacing = 'left';
+      game.player.moveLeft('left');
       break;
     case RIGHT_ARROW:
-      //player.moveRight();
-      //currentFacing = 'right';
+      game.player.moveRight('right');
       break;
     case UP_ARROW:
-      //player.moveUp();
-      //currentFacing = 'up';
+      game.player.moveUp('up');
       break;
     case DOWN_ARROW:
-      //player.moveDown();
-      //
-      currentFacing = 'down';
+      game.player.moveDown('down');
       break;
   }
 }
