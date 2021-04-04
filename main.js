@@ -8,8 +8,14 @@ function setup() {
 }
 
 function draw() {
+ 
   background(220);
   game.draw();
+  stroke('chartreuse');
+  strokeWeight(5);
+  rect(0, 0, 500, 500);
+  noFill();
+  
 }
 
 function preload() {
@@ -23,7 +29,7 @@ function keyPressed() {
       //currentFacing = 'left';
       break;
     case RIGHT_ARROW:
-     //player.moveRight();
+      //player.moveRight();
       //currentFacing = 'right';
       break;
     case UP_ARROW:
