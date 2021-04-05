@@ -8,10 +8,10 @@ class Ghost {
         // this.indexes = game.levelParser(game.currentLevel, 'gr');
         // console.log(this.indexes);
         this.animation = new Animation();
-        console.log('ghost is being setup');
+        console.log('ghost is being setup' + this.animation);
     }
     draw() {
-        this.animation.animate(game.ghostLeftAnim, this.xPos*50, this.yPos*50);
+        this.animation.animate(game.ghostLeftAnim, this.xPos, this.yPos);
         //console.log(this.yPos);
        //console.log(this.animation.frameCounter)
         
