@@ -1,11 +1,13 @@
 class Game {
     constructor() {
         //game objects
-        this.player;
-        this.boxes;
-        this.ghost;
-        this.levels;
-        this.currentLevel;
+        //this.player;
+        //this.boxes;
+        //this.ghost;
+        //this.ghosts;
+        //this.ghostIndexes;
+        //this.levels;
+        //this.currentLevel;
         //images
         this.backgroundImage;
         this.playerDown;
@@ -13,7 +15,7 @@ class Game {
         this.playerRight;
         this.playerLeft;
         this.boxImage;
-        this.ghostImage; 
+        this.ghostImage;
 
     }
     setup() {
@@ -21,11 +23,16 @@ class Game {
         this.currentLevel = this.levels.levelOne;
         this.player = new Player();
         this.boxes = new Box();
-        this.ghost = new Ghost();
-
+        //this.ghost = new Ghost();
         this.player.setup(0, 0);
         this.boxes.setup();
-        this.ghost.setup();
+        this.ghosts = [];
+        this.ghostAdder(this.currentLevel, 'gr');
+        console.log('trying to add a ghost');
+        this.ghostIndexes = game.levelParser(game.currentLevel, 'gr');
+
+
+        //this.ghost.setup();
     }
     preLoad() {
         this.backgroundImage = loadImage('assets/individual-images/floor.png');
@@ -43,17 +50,34 @@ class Game {
         image(this.backgroundImage, 0, 0, width, height)
         this.player.draw();
         this.boxes.draw();
-        this.ghost.draw();
+        //this.ghost.draw();
+        this.ghosts.forEach(function (ghost) {
+            ghost.draw();
+        })
+
+        // for (ghost of this.ghosts) {
+        //     console.log(ghost);
+        //     ghost.draw();
+        // }
     }
     levelParser(level, gameObjectString) {
         let indexes = [];
         for (let i = 0; i < level.length; i++) {
-          for (let n = 0; n < level[i].length; n++) {
-            if (level[i][n] === gameObjectString) {
-              indexes.push([i, n]);
+            for (let n = 0; n < level[i].length; n++) {
+                if (level[i][n] === gameObjectString) {
+                    indexes.push([i, n]);
+                }
             }
-          }
         }
         return indexes;
-      }
+    }
+    ghostAdder(level, typeOfGhost) {
+        let indexes = this.levelParser(level, typeOfGhost);
+        for (let i = 0; i < indexes.length; i++) {
+            console.log('ghost added');
+            this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50));
+            //image(game.ghostImage, indexes[i][0] * 50, this.indexes[i][1] * 50, 50, 50);
+            // this.indexes = game.levelParser(game.currentLevel, 'b');
+        }
+    }
 }
