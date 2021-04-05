@@ -1,9 +1,11 @@
 class Box {
-    constructor(x,y){ 
-        this.xPos = x;
-        this.yPos = y;
+    constructor() {}
+    draw() {
+        let indexes = game.levelParser(game.currentLevel, 'b');
+        console.log(indexes);
+        for (i of indexes) {
+            
+            image(game.boxImage, i[0] * 50, i[1] * 50, 50, 50);
+        }
     }
-    draw(){
-        image(game.boxImage, this.xPos * 50, this.yPos * 50, 50, 50);
-    }    
 }

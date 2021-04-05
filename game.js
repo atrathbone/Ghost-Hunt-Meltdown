@@ -2,7 +2,9 @@ class Game {
     constructor() {
         //game objects
         this.player;
-        this.boxes = [];
+        this.boxes;
+        this.levels;
+        this.currentLevel;
         //images
         this.backgroundImage;
         this.playerDown;
@@ -13,10 +15,10 @@ class Game {
 
     }
     setup() {
+        this.levels = new Levels();
+        this.currentLevel = this.levels.levelOne;
         this.player = new Player();
-        this.boxes.push(new Box(5, 5));
-        this.boxes.push(new Box(6, 5));
-        this.boxes.push(new Box(7, 6));
+        this.boxes = new Box();
 
         this.player.setup(0, 0);
     }
@@ -31,9 +33,17 @@ class Game {
     draw() {
         image(this.backgroundImage, 0, 0, width, height)
         this.player.draw();
-        for (box of this.boxes) {
-            box.draw();
-        }
-
+        this.boxes.draw();
     }
+    levelParser(level, gameObjectString) {
+        let indexes = [];
+        for (let i = 0; i < level.length; i++) {
+          for (let n = 0; n < level[i].length; n++) {
+            if (level[i][n] === gameObjectString) {
+              indexes.push([[i], [n]]);
+            }
+          }
+        }
+        return indexes;
+      }
 }

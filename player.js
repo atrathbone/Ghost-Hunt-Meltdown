@@ -37,7 +37,7 @@ class Player {
             this.facing = inputDirection;
         }
         this.facing = inputDirection;
-        console.log('player facing: ' + this.facing + '[should be down]')
+        console.log('player facing: ' + this.facing + '[should be down] ' + this.xPos + this.yPos)
     }
 
     moveUp(inputDirection) {
