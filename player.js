@@ -23,7 +23,7 @@ class Player {
                 break;
             case 'right':
                 image(game.playerRight, this.xPos * 50, this.yPos * 50, 50, 50);
-                break;  
+                break;
         }
     }
 
@@ -75,5 +75,17 @@ class Player {
         }
         this.facing = inputDirection;
         console.log('player facing: ' + this.facing + '[should be left]')
+    }
+
+    canIMove(futureX, futureY) {
+        let myI = [futureX, futureY];
+        let myIStr = myI.toString();
+        for (box of game.boxes.indexes) {
+            if (box.toString() === myIStr) {
+                return false;
+            } else {
+                return true;
+            }
+        }
     }
 }
