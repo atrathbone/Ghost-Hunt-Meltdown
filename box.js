@@ -1,6 +1,6 @@
 class Box {
     constructor() {
-        this.indexes;
+        //this.indexes;
     }
     setup(){
         this.indexes = game.levelParser(game.currentLevel, 'b');

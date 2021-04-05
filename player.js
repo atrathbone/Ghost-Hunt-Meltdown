@@ -13,7 +13,9 @@ class Player {
     draw() {
         switch (this.facing) {
             case 'down':
-                image(game.playerDown, this.xPos * 50, this.yPos * 50, 50, 50);
+                // console.log('call')
+                game.animation.animate(game.playerDownAnim,this.xPos*50,this.yPos*50)
+            //image(game.playerDown, this.xPos * 50, this.yPos * 50, 50, 50);
                 break;
             case 'up':
                 image(game.playerUp, this.xPos * 50, this.yPos * 50, 50, 50);
@@ -97,19 +99,19 @@ class Player {
         let myI = [futureX, futureY];
         let myIStr = myI.toString();
         let ifHeCanMove = true;
-        
-        for (let i =0; i<game.boxes.indexes.length; i++) {
+
+        for (let i = 0; i < game.boxes.indexes.length; i++) {
             if (game.boxes.indexes[i].toString() === myIStr) {
                 console.log('you cant move');
                 ifHeCanMove = false;
-             } 
-             
+            }
+
             //else {
             //     return true;
             // }
         }
         return ifHeCanMove;
-        
+
         // for (box of game.boxes.indexes) {
         //     if (box.toString() === myIStr) {
         //         console.log('you cant move');

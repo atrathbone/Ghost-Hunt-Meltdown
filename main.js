@@ -1,9 +1,11 @@
 const game = new Game();
+const fps = 12; 
 
 function setup() {
   var canvas = createCanvas(500, 500);
   canvas.parent('p5');
   noSmooth();
+  frameRate(fps);
   game.setup();
 }
 
@@ -15,6 +17,7 @@ function draw() {
   strokeWeight(5);
   rect(0, 0, 500, 500);
   noFill();
+  //console.log(frameCount);
   
 }
 
