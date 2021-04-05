@@ -96,12 +96,28 @@ class Player {
     canIMove(futureX, futureY) {
         let myI = [futureX, futureY];
         let myIStr = myI.toString();
-        for (box of game.boxes.indexes) {
-            if (box.toString() === myIStr) {
-                return false;
-            } else {
-                return true;
-            }
+        let ifHeCanMove = true;
+        
+        for (let i =0; i<game.boxes.indexes.length; i++) {
+            if (game.boxes.indexes[i].toString() === myIStr) {
+                console.log('you cant move');
+                ifHeCanMove = false;
+             } 
+             
+            //else {
+            //     return true;
+            // }
         }
+        return ifHeCanMove;
+        
+        // for (box of game.boxes.indexes) {
+        //     if (box.toString() === myIStr) {
+        //         console.log('you cant move');
+        //         return false;
+
+        //     } else {
+        //         return true;
+        //     }
+        // }
     }
 }

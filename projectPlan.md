@@ -14,7 +14,6 @@ mvp:
 -tiled game scene constructed dynamically from tiles.
 -walls with collision detection.
 -basic enemy AI (ghosts have line of sight).
--projectiles which shoot forward and stop at the point of collision. 
 
 
 nice to have:
@@ -27,16 +26,16 @@ nice to have:
 
 plan :
 -get background and player rendered on screen-DONE
--get player to move 
--constrain the movement within the frame of the image
--add boxes and dont allow player to walk thorough them 
+-get player to move-DONE
+-constrain the movement within the frame of the image-DONE
+-add boxes and dont allow player to walk thorough them -DONE
 -add static ghost and mark player as spotted when in line of sight
 -allow for boxes to be blocking line of sight
 -change fps to 30 and create a frame counter for movement/ animation
+-animate sprites
 -make ghosts move/change direction facing
 -create a fail state for when the player is seen (game should reset)
--create win state for when player reaches the door
--animate sprites 
+-create win state for when player reaches the door 
 -create a level loader to load different level configurations and wire it up to win state
 -add sound
 -
