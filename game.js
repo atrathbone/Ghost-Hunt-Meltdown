@@ -10,10 +10,10 @@ class Game {
         //this.currentLevel;
         //images
         this.backgroundImage;
-        this.playerDown;
-        this.playerUp;
-        this.playerRight;
-        this.playerLeft;
+        // this.playerDown;
+        // this.playerUp;
+        // this.playerRight;
+        // this.playerLeft;
         this.boxImage;
         this.ghostImage;
 
@@ -28,7 +28,7 @@ class Game {
         this.currentLevel = this.levels.levelOne;
         this.player = new Player();
         this.boxes = new Box();
-        this.animation = new Animation();
+        //this.animation = new Animation();
         //this.ghost = new Ghost();
         this.player.setup(0, 0);
         this.boxes.setup();
@@ -43,10 +43,10 @@ class Game {
     }
     preLoad() {
         this.backgroundImage = loadImage('assets/individual-images/floor.png');
-        this.playerDown = loadImage('assets/individual-images/player/playerDown1.png');
-        this.playerUp = loadImage('assets/individual-images/player/playerUp1.png');
-        this.playerRight = loadImage('assets/individual-images/player/playerRight1.png');
-        this.playerLeft = loadImage('assets/individual-images/player/playerLeft1.png');
+        // this.playerDown = loadImage('assets/individual-images/player/playerDown1.png');
+        // this.playerUp = loadImage('assets/individual-images/player/playerUp1.png');
+        // this.playerRight = loadImage('assets/individual-images/player/playerRight1.png');
+        // this.playerLeft = loadImage('assets/individual-images/player/playerLeft1.png');
         this.boxImage = loadImage('assets/individual-images/box.png');
         this.ghostImage = loadImage('assets/individual-images/ghost/ghostLeft1.png');
 
@@ -82,6 +82,39 @@ class Game {
             loadImage('assets/individual-images/player/playerLeft5.png'),
             loadImage('assets/individual-images/player/playerLeft6.png')
         ];
+        this.ghostDownAnim = [
+            loadImage('assets/individual-images/ghost/ghostDown1.png'),
+            loadImage('assets/individual-images/ghost/ghostDown2.png'),
+            loadImage('assets/individual-images/ghost/ghostDown3.png'),
+            loadImage('assets/individual-images/ghost/ghostDown4.png'),
+            loadImage('assets/individual-images/ghost/ghostDown5.png'),
+            loadImage('assets/individual-images/ghost/ghostDown6.png')
+        ];
+        this.ghostUpAnim = [
+            loadImage('assets/individual-images/ghost/ghostUp1.png'),
+            loadImage('assets/individual-images/ghost/ghostUp2.png'),
+            loadImage('assets/individual-images/ghost/ghostUp3.png'),
+            loadImage('assets/individual-images/ghost/ghostUp4.png'),
+            loadImage('assets/individual-images/ghost/ghostUp5.png'),
+            loadImage('assets/individual-images/ghost/ghostUp6.png')
+        ];
+        this.ghostRightAnim = [
+            loadImage('assets/individual-images/ghost/ghostRight1.png'),
+            loadImage('assets/individual-images/ghost/ghostRight2.png'),
+            loadImage('assets/individual-images/ghost/ghostRight3.png'),
+            loadImage('assets/individual-images/ghost/ghostRight4.png'),
+            loadImage('assets/individual-images/ghost/ghostRight5.png'),
+            loadImage('assets/individual-images/ghost/ghostRight6.png')
+        ];
+        this.ghostLeftAnim = [
+            loadImage('assets/individual-images/ghost/ghostLeft1.png'),
+            loadImage('assets/individual-images/ghost/ghostLeft2.png'),
+            loadImage('assets/individual-images/ghost/ghostLeft3.png'),
+            loadImage('assets/individual-images/ghost/ghostLeft4.png'),
+            loadImage('assets/individual-images/ghost/ghostLeft5.png'),
+            loadImage('assets/individual-images/ghost/ghostLeft6.png')
+        ];
+
     }
     draw() {
         image(this.backgroundImage, 0, 0, width, height)
@@ -115,6 +148,9 @@ class Game {
             this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50));
             //image(game.ghostImage, indexes[i][0] * 50, this.indexes[i][1] * 50, 50, 50);
             // this.indexes = game.levelParser(game.currentLevel, 'b');
+        }
+        for (let ghost of this.ghosts){
+            ghost.setup();
         }
     }
 }

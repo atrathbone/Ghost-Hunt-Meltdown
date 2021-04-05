@@ -8,23 +8,30 @@ class Player {
         this.xPos = initialXPos || 0;
         this.yPos = initialYPos || 0;
         this.facing = 'down';
+        this.animation = new Animation();
     }
 
     draw() {
         switch (this.facing) {
             case 'down':
                 // console.log('call')
-                game.animation.animate(game.playerDownAnim,this.xPos*50,this.yPos*50)
+                this.animation.animate(game.playerDownAnim,this.xPos*50,this.yPos*50)
             //image(game.playerDown, this.xPos * 50, this.yPos * 50, 50, 50);
                 break;
             case 'up':
-                image(game.playerUp, this.xPos * 50, this.yPos * 50, 50, 50);
+                this.animation.animate(game.playerUpAnim,this.xPos*50,this.yPos*50)
+
+                // image(game.playerUp, this.xPos * 50, this.yPos * 50, 50, 50);
                 break;
             case 'left':
-                image(game.playerLeft, this.xPos * 50, this.yPos * 50, 50, 50);
+                this.animation.animate(game.playerLeftAnim,this.xPos*50,this.yPos*50)
+
+                // image(game.playerLeft, this.xPos * 50, this.yPos * 50, 50, 50);
                 break;
             case 'right':
-                image(game.playerRight, this.xPos * 50, this.yPos * 50, 50, 50);
+                this.animation.animate(game.playerRightAnim,this.xPos*50,this.yPos*50)
+
+                // image(game.playerRight, this.xPos * 50, this.yPos * 50, 50, 50);
                 break;
         }
     }
