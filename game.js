@@ -21,6 +21,8 @@ class Game {
         this.boxes = new Box();
 
         this.player.setup(0, 0);
+        this.boxes.setup();
+        console.log(this.boxes.indexes);
     }
     preLoad() {
         this.backgroundImage = loadImage('assets/individual-images/floor.png');

@@ -1,10 +1,13 @@
 class Box {
-    constructor() {}
+    constructor() {
+        this.indexes;
+    }
+    setup(){
+        this.indexes = game.levelParser(game.currentLevel, 'b');
+    }
     draw() {
-        let indexes = game.levelParser(game.currentLevel, 'b');
-        for (let i = 0; i<indexes.length; i++) {
-            
-            image(game.boxImage, indexes[i][0] * 50, indexes[i][1] * 50, 50, 50);
+        for (let i = 0; i<this.indexes.length; i++) {  
+            image(game.boxImage, this.indexes[i][0] * 50, this.indexes[i][1] * 50, 50, 50);
         }
     }
 }

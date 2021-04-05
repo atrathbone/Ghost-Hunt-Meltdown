@@ -25,7 +25,6 @@ class Player {
                 image(game.playerRight, this.xPos * 50, this.yPos * 50, 50, 50);
                 break;  
         }
-        // image(game.playerLeft, this.xPos * 50, this.yPos * 50, 50, 50);
     }
 
     moveDown(inputDirection) {
