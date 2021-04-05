@@ -6,20 +6,11 @@ class Game {
         this.playerUp;
         this.playerRight;
         this.playerLeft;
-        this.playerImage;
-        this.playerImages;
+        
     }
     setup() {
-        this.playerImages = {
-            up : 'this.playerUp',
-            down: 'this.playerUp',
-            left : 'this.playerLeft',
-            right : 'this.playerRight'
-        };
         this.player = new Player();
         this.player.setup(0,0);
-        this.playerImage = 'down';
-        console.log('current player image '+ this.playerImage);
     }
     preLoad() {
         this.backgroundImage = loadImage('assets/individual-images/floor.png');
@@ -32,8 +23,5 @@ class Game {
     draw() {
         image(this.backgroundImage, 0, 0, width, height)
         this.player.draw();
-    }
-    changePlayerImage(face){
-        this.playerImage = this.playerImages[this.player.facing];
     }
 }

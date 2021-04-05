@@ -1,9 +1,9 @@
 Ghost Hunt Meltdown:
 
 Description: 
-A grid based puzzle/ dungeon crawl game where you control a man trying to scare ghosts away from his house without getting seen. 
+A grid based puzzle/ dungeon crawl game where you control a man trying to move around his house without being seen. 
 
-The player will be able to move the man with the arrow keys to change the direction he is facing and then press the space bar to throw water baloons at the ghosts. If the player walks in to the line of sight (any square in front of the direction the ghost is facing) of the ghosts the level restarts.
+The player will be able to move the man with the arrow keys to change the direction he is facing. If the player walks in to the line of sight (any square in front of the direction the ghost is facing) of the ghosts the level restarts.
 
 The levels will be populated with walls, ghosts and the player and will stored as two dimensional arrays of characters which can be interpreted by the game class. 
 

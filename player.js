@@ -3,7 +3,6 @@ class Player {
         this.xPos;
         this.yPos;
         this.facing;
-        this.parsedXPos;
     }
     setup(initialXPos, initialYPos) {
         this.xPos = initialXPos || 0;
@@ -12,12 +11,21 @@ class Player {
     }
 
     draw() {
-
-        //THIS IS WHERE THE PROBLEM IS!
-        //image(game.playerImage, this.xPos * 50, this.yPos * 50, 50, 50);
-        //now wanted...
-        image(game.playerDown, this.xPos * 50, this.yPos * 50, 50, 50);
-
+        switch (this.facing) {
+            case 'down':
+                image(game.playerDown, this.xPos * 50, this.yPos * 50, 50, 50);
+                break;
+            case 'up':
+                image(game.playerUp, this.xPos * 50, this.yPos * 50, 50, 50);
+                break;
+            case 'left':
+                image(game.playerLeft, this.xPos * 50, this.yPos * 50, 50, 50);
+                break;
+            case 'right':
+                image(game.playerRight, this.xPos * 50, this.yPos * 50, 50, 50);
+                break;  
+        }
+        // image(game.playerLeft, this.xPos * 50, this.yPos * 50, 50, 50);
     }
 
     moveDown(inputDirection) {
@@ -27,7 +35,6 @@ class Player {
             }
         } else {
             this.facing = inputDirection;
-            game.changePlayerImage(inputDirection);
         }
         this.facing = inputDirection;
         console.log('player facing: ' + this.facing + '[should be down]')
@@ -40,7 +47,6 @@ class Player {
             }
         } else {
             this.facing = inputDirection;
-            game.changePlayerImage(inputDirection);
         }
 
         this.facing = inputDirection;
@@ -54,7 +60,6 @@ class Player {
             }
         } else {
             this.facing = inputDirection;
-            game.changePlayerImage(inputDirection);
         }
 
         this.facing = inputDirection;
@@ -68,7 +73,6 @@ class Player {
             }
         } else {
             this.facing = inputDirection;
-            game.changePlayerImage(inputDirection);
         }
         this.facing = inputDirection;
         console.log('player facing: ' + this.facing + '[should be left]')
