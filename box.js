@@ -2,10 +2,9 @@ class Box {
     constructor() {}
     draw() {
         let indexes = game.levelParser(game.currentLevel, 'b');
-        console.log(indexes);
-        for (i of indexes) {
+        for (let i = 0; i<indexes.length; i++) {
             
-            image(game.boxImage, i[0] * 50, i[1] * 50, 50, 50);
+            image(game.boxImage, indexes[i][0] * 50, indexes[i][1] * 50, 50, 50);
         }
     }
 }

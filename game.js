@@ -40,7 +40,7 @@ class Game {
         for (let i = 0; i < level.length; i++) {
           for (let n = 0; n < level[i].length; n++) {
             if (level[i][n] === gameObjectString) {
-              indexes.push([[i], [n]]);
+              indexes.push([i, n]);
             }
           }
         }
