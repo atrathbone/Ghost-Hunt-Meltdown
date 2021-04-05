@@ -1,8 +1,6 @@
 class Player {
     constructor() {
-        //this.xPos;
-        //this.yPos;
-        //this.facing;
+
     }
     setup(initialXPos, initialYPos) {
         this.xPos = initialXPos || 0;
@@ -14,24 +12,16 @@ class Player {
     draw() {
         switch (this.facing) {
             case 'down':
-                // console.log('call')
                 this.animation.animate(game.playerDownAnim,this.xPos*50,this.yPos*50)
-            //image(game.playerDown, this.xPos * 50, this.yPos * 50, 50, 50);
                 break;
             case 'up':
                 this.animation.animate(game.playerUpAnim,this.xPos*50,this.yPos*50)
-
-                // image(game.playerUp, this.xPos * 50, this.yPos * 50, 50, 50);
                 break;
             case 'left':
                 this.animation.animate(game.playerLeftAnim,this.xPos*50,this.yPos*50)
-
-                // image(game.playerLeft, this.xPos * 50, this.yPos * 50, 50, 50);
                 break;
             case 'right':
                 this.animation.animate(game.playerRightAnim,this.xPos*50,this.yPos*50)
-
-                // image(game.playerRight, this.xPos * 50, this.yPos * 50, 50, 50);
                 break;
         }
     }
@@ -112,21 +102,7 @@ class Player {
                 console.log('you cant move');
                 ifHeCanMove = false;
             }
-
-            //else {
-            //     return true;
-            // }
         }
         return ifHeCanMove;
-
-        // for (box of game.boxes.indexes) {
-        //     if (box.toString() === myIStr) {
-        //         console.log('you cant move');
-        //         return false;
-
-        //     } else {
-        //         return true;
-        //     }
-        // }
     }
 }

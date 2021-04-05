@@ -10,15 +10,12 @@ function setup() {
 }
 
 function draw() {
- 
   background(220);
   game.draw();
   stroke('chartreuse');
   strokeWeight(5);
   rect(0, 0, 500, 500);
   noFill();
-  //console.log(frameCount);
-  
 }
 
 function preload() {
