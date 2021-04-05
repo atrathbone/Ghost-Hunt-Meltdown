@@ -29,8 +29,12 @@ class Player {
 
     moveDown(inputDirection) {
         if (this.facing === inputDirection) {
-            if (this.yPos < 9) {
-                this.yPos += 1;
+            let futureX = this.xPos;
+            let futureY = this.yPos + 1;
+            if (this.canIMove(futureX, futureY)) {
+                if (this.yPos < 9) {
+                    this.yPos += 1;
+                }
             }
         } else {
             this.facing = inputDirection;
@@ -41,8 +45,12 @@ class Player {
 
     moveUp(inputDirection) {
         if (this.facing === inputDirection) {
-            if (this.yPos >= 1) {
-                this.yPos -= 1;
+            let futureX = this.xPos;
+            let futureY = this.yPos - 1;
+            if (this.canIMove(futureX, futureY)) {
+                if (this.yPos >= 1) {
+                    this.yPos -= 1;
+                }
             }
         } else {
             this.facing = inputDirection;
@@ -54,8 +62,12 @@ class Player {
 
     moveRight(inputDirection) {
         if (this.facing === inputDirection) {
-            if (this.xPos < 9) {
-                this.xPos += 1;
+            let futureX = this.xPos + 1;
+            let futureY = this.yPos;
+            if (this.canIMove(futureX, futureY)) {
+                if (this.xPos < 9) {
+                    this.xPos += 1;
+                }
             }
         } else {
             this.facing = inputDirection;
@@ -67,8 +79,12 @@ class Player {
 
     moveLeft(inputDirection) {
         if (this.facing === inputDirection) {
-            if (this.xPos >= 1) {
-                this.xPos -= 1;
+            let futureX = this.xPos - 1;
+            let futureY = this.yPos;
+            if (this.canIMove(futureX, futureY)) {
+                if (this.xPos >= 1) {
+                    this.xPos -= 1;
+                }
             }
         } else {
             this.facing = inputDirection;
