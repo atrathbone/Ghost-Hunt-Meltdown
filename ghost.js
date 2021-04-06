@@ -3,20 +3,11 @@ class Ghost {
         this.xPos = x;
         this.yPos = y;
         this.moveFrameCounter = 0;
-        // this.ghostInfo = {
-        //     type: '',
-        //     facing: ''
-        // };
         this.type = type || 'gr';
         this.facing = facing || 'left';
         this.animation = new Animation();
         this.dangerArea = [];
-        // this.objectFramecounter = new 
     }
-    // setup() {
-
-    //     //console.log('ghost is being setup' + this.animation);
-    // }
     draw() {
         switch (this.facing) {
             case 'left':
@@ -63,12 +54,25 @@ class Ghost {
     }
 
     lineOfSight() {
+        let tem = [];
         switch (this.facing) {
             case 'down':
-                console.log('do something');
+                this.dangerArea = [];
+                for (let i = this.yPos / 50; i <= 9; i++) {
+                    this.dangerArea.push([
+                        [this.xPos / 50],
+                        [i]
+                    ]);
+                }
                 break;
             case 'up':
-                console.log('do something');
+                this.dangerArea = [];
+                for (let i = 0; i <= this.yPos / 50; i++) {
+                    this.dangerArea.push([
+                        [this.xPos / 50],
+                        [i]
+                    ]);
+                }
                 break;
             case 'left':
                 this.dangerArea = [];
@@ -78,6 +82,16 @@ class Ghost {
                         [this.yPos / 50]
                     ]);
                 }
+                // console.log(game.boxes.indexes);
+                // tem = [];
+                // for (let box of game.boxes.indexes) {
+                //     console.log(box);
+                //     if (box[1] === this.yPos && box[0] < this.xPos) {
+
+                //         temp.push(box);
+                //     }
+                // }
+
                 break;
             case 'right':
                 this.dangerArea = [];
@@ -89,20 +103,5 @@ class Ghost {
                 }
                 break;
         }
-        //check facing
-        //if right-
-        //if left-
-        //take this x and y,
-        //all positions up to this x become danger  or all positions after the x become danger
-
     }
 }
-
-/*should be two different types of ghost---looking along rows and looking along columns
-should be able to walk left and right.
-should be able to have a line of sight---so an array of current danger positions for the player
-so the two imporant tasks are to render itself/ keep track of its position. keep track of dangerous places for the player
-the danger zone will be different depending on which direction the ghost is looking
-structure---
-variable which keeps track of type of ghost 
-another variable which tracks the direction facing (for rendering purposes)*/

@@ -22,7 +22,6 @@ class Game {
         this.currentLevel = this.levels.levelTwo;
         this.player = new Player();
         this.boxes = new Box();
-        // this.player.setup(0, 0);
         this.boxes.setup();
         this.ghosts = [];
         this.ghostAdder(this.currentLevel, 'gr');
@@ -126,12 +125,8 @@ class Game {
     ghostAdder(level, typeOfGhost) {
         let indexes = this.levelParser(level, typeOfGhost);
         for (let i = 0; i < indexes.length; i++) {
-            console.log('ghost added');
             this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50));
         }
-        // for (let ghost of this.ghosts){
-        //     ghost.setup();
-        // }
     }
 
     reloadLevel(){

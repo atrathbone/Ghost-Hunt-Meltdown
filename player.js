@@ -28,7 +28,6 @@ class Player {
         if (this.facing === inputDirection) {
             let futureX = this.xPos;
             let futureY = this.yPos + 1;
-            // if(this.willIDie(futureX,futureY)===true){console.log('you will die')}
             if (this.canIMove(futureX, futureY)) {
                 if (this.yPos < 9) {
                     this.yPos += 1;
@@ -38,14 +37,12 @@ class Player {
             this.facing = inputDirection;
         }
         this.facing = inputDirection;
-        console.log('player facing: ' + this.facing + '[should be down] ' + this.xPos + this.yPos)
     }
 
     moveUp(inputDirection) {
         if (this.facing === inputDirection) {
             let futureX = this.xPos;
             let futureY = this.yPos - 1;
-            // if(this.willIDie(futureX,futureY)===true){console.log('you will die')}
             if (this.canIMove(futureX, futureY)) {
                 if (this.yPos >= 1) {
                     this.yPos -= 1;
@@ -56,14 +53,12 @@ class Player {
         }
 
         this.facing = inputDirection;
-        console.log('player facing: ' + this.facing + '[should be up]')
     }
 
     moveRight(inputDirection) {
         if (this.facing === inputDirection) {
             let futureX = this.xPos + 1;
             let futureY = this.yPos;
-            // if(this.willIDie(futureX,futureY)===true){console.log('you will die')}
             if (this.canIMove(futureX, futureY)) {
                 if (this.xPos < 9) {
                     this.xPos += 1;
@@ -74,14 +69,12 @@ class Player {
         }
 
         this.facing = inputDirection;
-        console.log('player facing: ' + this.facing + '[should be right]')
     }
 
     moveLeft(inputDirection) {
         if (this.facing === inputDirection) {
             let futureX = this.xPos - 1;
             let futureY = this.yPos;
-            // if(this.willIDie(futureX,futureY)===true){console.log('you will die')}
             if (this.canIMove(futureX, futureY)) {
                 if (this.xPos >= 1) {
                     this.xPos -= 1;
@@ -91,7 +84,6 @@ class Player {
             this.facing = inputDirection;
         }
         this.facing = inputDirection;
-        console.log('player facing: ' + this.facing + '[should be left]')
     }
 
     canIMove(futureX, futureY) {
