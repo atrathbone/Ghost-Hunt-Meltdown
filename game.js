@@ -18,13 +18,11 @@ class Game {
         this.currentLevel = this.levels.levelOne;
         this.player = new Player();
         this.boxes = new Box();
-        this.player.setup(0, 0);
+        // this.player.setup(0, 0);
         this.boxes.setup();
         this.ghosts = [];
         this.ghostAdder(this.currentLevel, 'gr');
-        console.log('trying to add a ghost');
         this.ghostIndexes = game.levelParser(game.currentLevel, 'gr');
-        console.log(this.ghostIndexes);
     }
     preLoad() {
         this.backgroundImage = loadImage('assets/individual-images/floor.png');
@@ -121,8 +119,8 @@ class Game {
             console.log('ghost added');
             this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50));
         }
-        for (let ghost of this.ghosts){
-            ghost.setup();
-        }
+        // for (let ghost of this.ghosts){
+        //     ghost.setup();
+        // }
     }
 }

@@ -31,8 +31,8 @@ plan :
 -add boxes and dont allow player to walk thorough them -DONE
 -add static ghost and mark player as spotted when in line of sight
 -allow for boxes to be blocking line of sight
--change fps to 30 and create a frame counter for movement/ animation
--animate sprites
+-change fps to 30 and create a frame counter for movement/ animation-DONE
+-animate sprites-DONE
 -make ghosts move/change direction facing
 -create a fail state for when the player is seen (game should reset)
 -create win state for when player reaches the door 
@@ -40,4 +40,15 @@ plan :
 -add sound
 -
 
+
+TUESDAY-
+GHOSTS-
+-ghost faces different directions
+-ghost can see
+-ghost can move/ and see
+
+-as above but with columns 
+LEVELLOADER-
+-add door and make it load another level 
+-add further properties to detrmine if ghosts are moving or not, and where the player begins 
  

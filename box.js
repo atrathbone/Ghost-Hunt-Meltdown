@@ -1,8 +1,9 @@
 class Box {
     constructor() {
+        this.indexes = game.levelParser(game.currentLevel, 'b');
     }
     setup(){
-        this.indexes = game.levelParser(game.currentLevel, 'b');
+        
     }
     draw() {
         for (let i = 0; i<this.indexes.length; i++) {  

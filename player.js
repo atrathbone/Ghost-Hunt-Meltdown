@@ -1,8 +1,5 @@
 class Player {
-    constructor() {
-
-    }
-    setup(initialXPos, initialYPos) {
+    constructor(initialXPos, initialYPos) {
         this.xPos = initialXPos || 0;
         this.yPos = initialYPos || 0;
         this.facing = 'down';
