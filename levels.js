@@ -6,7 +6,7 @@ class Levels {
         //refer to them by key
         this.levelOne = [
             ['o', 'o', 'b', 'b', 'b', 'b', 'b', 'b', 'o', 'o'],
-            ['o', 'o', 'b', 'b', 'b', 'b', 'b', 'b', 'o', 'd'],
+            ['o', 'o', 'b', 'b', 'b', 'b', 'b', 'b', 'o', 'db'],
             ['o', 'o', 'b', 'b', 'b', 'b', 'b', 'b', 'o', 'o'],
             ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'b'],
             ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'b'],
@@ -17,7 +17,7 @@ class Levels {
             ['b', 'b', 'b', 'gr', 'b', 'b', 'gr', 'b', 'b', 'b'],
           ];
           this.levelTwo = [
-            ['d', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+            ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
             ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
             ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
             ['b', 'b', 'b', 'b', 'b', 'b', 'o', 'o', 'o', 'o'],
@@ -26,7 +26,7 @@ class Levels {
             ['o', 'o', 'gr', 'o', 'b', 'o', 'o', 'o', 'o', 'o'],
             ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'gr', 'o', 'o'],
             ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'o', 'o'],
-            ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+            ['dt', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
           ];
           //blank level for tests. 
         //   this.levelTwo = [
