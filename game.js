@@ -15,6 +15,7 @@ class Game {
         this.doorImageBottom;
         this.doorImageRight;
         this.doorImageLeft;
+        this.vaseImage; 
 
     }
     setup() {
@@ -28,6 +29,7 @@ class Game {
         this.ghostAdder(this.currentLevel, 'gc');
         //this.ghostIndexes = game.levelParser(game.currentLevel, 'gr');
         this.door = new Door();
+        this.vase = new Vase();
     }
     preLoad() {
         this.backgroundImage = loadImage('assets/individual-images/floor.png');
@@ -37,6 +39,7 @@ class Game {
         this.doorImageTop = loadImage('assets/individual-images/doorTop.png');
         this.doorImageRight = loadImage('assets/individual-images/doorRight.png');
         this.doorImageLeft = loadImage('assets/individual-images/doorLeft.png');
+        this.vaseImage = loadImage('assets/individual-images/vase.png');
         this.playerDownAnim = [
             loadImage('assets/individual-images/player/playerDown1.png'),
             loadImage('assets/individual-images/player/playerDown2.png'),
@@ -108,6 +111,7 @@ class Game {
         this.player.draw();
         this.boxes.draw();
         this.door.draw();
+        this.vase.draw();
         this.ghosts.forEach(function (ghost) {
             ghost.draw();
         })

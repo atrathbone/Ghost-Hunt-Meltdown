@@ -33,8 +33,8 @@ plan :
 -allow for boxes to be blocking line of sight
 -change fps to 30 and create a frame counter for movement/ animation-DONE
 -animate sprites-DONE
--make ghosts move/change direction facing
--create a fail state for when the player is seen (game should reset)
+-make ghosts move/change direction facing-DONE
+-create a fail state for when the player is seen (game should reset)-DONE
 -create win state for when player reaches the door 
 -create a level loader to load different level configurations and wire it up to win state
 -add sound
@@ -44,8 +44,8 @@ plan :
 TUESDAY-
 GHOSTS-
 -ghost faces different directions-DONE
--ghost can see
--ghost can move/ and see
+-ghost can see-DONE
+-ghost can move/ and see- THIS WILL NOW COME LAST
 
 -as above but with columns 
 LEVELLOADER-

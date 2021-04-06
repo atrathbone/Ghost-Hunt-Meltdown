@@ -4,6 +4,8 @@ class Door {
         this.indexesBottom = game.levelParser(game.currentLevel, 'db');
         this.indexesRight = game.levelParser(game.currentLevel, 'dr');
         this.indexesLeft = game.levelParser(game.currentLevel, 'dl');
+        this.xPos;
+        this.yPos;
     }
     draw() {
         for (let i = 0; i < this.indexesTop.length; i++) {

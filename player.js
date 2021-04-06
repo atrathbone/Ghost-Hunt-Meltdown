@@ -4,9 +4,13 @@ class Player {
         this.yPos = initialYPos || 0;
         this.facing = 'down';
         this.animation = new Animation();
+        this.hasCollected = false; 
     }
 
     draw() {
+        if(this.hasCollected===false){
+            this.haveIcollected(this.xPos, this.yPos);
+        }
         if(this.willIDie(this.xPos, this.yPos)){game.setup();}
         switch (this.facing) {
             case 'down':
@@ -113,5 +117,20 @@ class Player {
             }
         }
         return ifHeWillDie;
+    }
+
+    haveIcollected(currentX,currentY){
+        let myI = [currentX, currentY];
+        let myIStr = myI.toString();
+
+        for (let vase of game.vase.indexes) {
+            for (let i = 0; i < game.vase.indexes.length; i++) {
+                if(game.vase.indexes[i].toString()===myIStr){
+                    this.hasCollected = true;
+                    game.vase.collect();
+                    return;
+                }
+            }
+        }
     }
 }
