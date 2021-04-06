@@ -15,12 +15,12 @@ class Game {
         this.doorImageBottom;
         this.doorImageRight;
         this.doorImageLeft;
-        this.vaseImage; 
-
+        this.vaseImage;
+        this.levels = new Levels();
     }
     setup() {
-        this.levels = new Levels();
-        this.currentLevel = this.levels.levelTwo;
+       
+        this.currentLevel = this.levels.levelList[this.levels.currentLevelIndex];
         this.player = new Player();
         this.boxes = new Box();
         this.boxes.setup();
@@ -108,9 +108,9 @@ class Game {
     }
     draw() {
         image(this.backgroundImage, 0, 0, width, height)
+        this.door.draw();
         this.player.draw();
         this.boxes.draw();
-        this.door.draw();
         this.vase.draw();
         this.ghosts.forEach(function (ghost) {
             ghost.draw();
@@ -130,12 +130,27 @@ class Game {
     ghostAdder(level, typeOfGhost) {
         let indexes = this.levelParser(level, typeOfGhost);
         for (let i = 0; i < indexes.length; i++) {
-            if(typeOfGhost==='gr'){this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50,'left'));}
-            if(typeOfGhost==='gc'){this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50,'down'));}
+            if (typeOfGhost === 'gr') {
+                this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'left'));
+            }
+            if (typeOfGhost === 'gc') {
+                this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'down'));
+            }
         }
     }
 
-    reloadLevel(){
+    reloadLevel() {
+        this.setup();
+    }
+
+    loadNextLevel() {
+        console.log('NEXT LEVEL!!!!')
+        if(this.levels.currentLevelIndex<this.levels.levelList.length-1){
+            this.levels.currentLevelIndex ++;
+        }
+        else{
+            this.levels.currentLevelIndex = 0;
+        }
         this.setup();
     }
 }

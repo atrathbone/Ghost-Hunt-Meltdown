@@ -4,14 +4,17 @@ class Player {
         this.yPos = initialYPos || 0;
         this.facing = 'down';
         this.animation = new Animation();
-        this.hasCollected = false; 
+        this.hasCollected = false;
     }
 
     draw() {
-        if(this.hasCollected===false){
+        this.haveIReachedTheDoor(this.xPos, this.yPos);
+        if (this.hasCollected === false) {
             this.haveIcollected(this.xPos, this.yPos);
         }
-        if(this.willIDie(this.xPos, this.yPos)){game.setup();}
+        if (this.willIDie(this.xPos, this.yPos)) {
+            game.setup();
+        }
         switch (this.facing) {
             case 'down':
                 this.animation.animate(game.playerDownAnim, this.xPos * 50, this.yPos * 50)
@@ -111,7 +114,7 @@ class Player {
 
         for (let ghost of game.ghosts) {
             for (let i = 0; i < ghost.dangerArea.length; i++) {
-                if(ghost.dangerArea[i].toString()===myIStr){
+                if (ghost.dangerArea[i].toString() === myIStr) {
                     ifHeWillDie = true;
                 }
             }
@@ -119,18 +122,35 @@ class Player {
         return ifHeWillDie;
     }
 
-    haveIcollected(currentX,currentY){
+    haveIcollected(currentX, currentY) {
         let myI = [currentX, currentY];
         let myIStr = myI.toString();
 
         for (let vase of game.vase.indexes) {
             for (let i = 0; i < game.vase.indexes.length; i++) {
-                if(game.vase.indexes[i].toString()===myIStr){
+                if (game.vase.indexes[i].toString() === myIStr) {
                     this.hasCollected = true;
                     game.vase.collect();
                     return;
                 }
             }
         }
+    }
+
+    haveIReachedTheDoor(currentX, currentY) {
+        let myI = [currentX, currentY];
+        let myIStr = myI.toString();
+
+        for (let door of game.door.indexes) {
+            for (let i = 0; i < game.door.indexes.length; i++) {
+                if (game.door.indexes[i].toString() === myIStr) {
+                    if(this.hasCollected === true){
+                        game.loadNextLevel();
+                    }
+                    return;
+                }
+            }
+        }
+
     }
 }
