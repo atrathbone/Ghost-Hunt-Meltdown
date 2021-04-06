@@ -30,6 +30,7 @@ class Ghost {
                 }
                 break;
             case 'right':
+                this.lineOfSight();
                 this.animation.animate(game.ghostRightAnim, this.xPos, this.yPos);
                 if (this.moveFrameCounter < 23) {
                     this.moveFrameCounter += 1;
@@ -39,6 +40,7 @@ class Ghost {
                 }
                 break;
             case 'down':
+                this.lineOfSight();
                 this.animation.animate(game.ghostDownAnim, this.xPos, this.yPos);
                 if (this.moveFrameCounter < 23) {
                     this.moveFrameCounter += 1;
@@ -48,6 +50,7 @@ class Ghost {
                 }
                 break;
             case 'up':
+                this.lineOfSight();
                 this.animation.animate(game.ghostUpAnim, this.xPos, this.yPos);
                 if (this.moveFrameCounter < 23) {
                     this.moveFrameCounter += 1;
@@ -62,25 +65,28 @@ class Ghost {
     lineOfSight() {
         switch (this.facing) {
             case 'down':
-                console.log('facing down my line of sight is...');
+                console.log('do something');
                 break;
             case 'up':
-                console.log('facing up my line of sight is...');
+                console.log('do something');
                 break;
             case 'left':
-                console.log('facing left my line of sight is...');
-                let tempArr = [];
-                for (let i = 0; i <= this.xPos/50; i++) {
-                    tempArr.push([
-                        [i],
-                        [this.yPos/50]
-                    ])
-                }
                 this.dangerArea = [];
-                this.dangerArea = tempArr;
+                for (let i = 0; i <= this.xPos / 50; i++) {
+                    this.dangerArea.push([
+                        [i],
+                        [this.yPos / 50]
+                    ]);
+                }
                 break;
             case 'right':
-                console.log('facing right my line of sight is...');
+                this.dangerArea = [];
+                for (let i = this.xPos / 50; i <= 9; i++) {
+                    this.dangerArea.push([
+                        [i],
+                        [this.yPos / 50]
+                    ]);
+                }
                 break;
         }
         //check facing
