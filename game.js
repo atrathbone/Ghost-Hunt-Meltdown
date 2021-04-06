@@ -123,4 +123,8 @@ class Game {
         //     ghost.setup();
         // }
     }
+
+    reloadLevel(){
+        this.setup();
+    }
 }

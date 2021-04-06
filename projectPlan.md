@@ -29,7 +29,7 @@ plan :
 -get player to move-DONE
 -constrain the movement within the frame of the image-DONE
 -add boxes and dont allow player to walk thorough them -DONE
--add static ghost and mark player as spotted when in line of sight
+-add static ghost and mark player as spotted when in line of sight -DONE
 -allow for boxes to be blocking line of sight
 -change fps to 30 and create a frame counter for movement/ animation-DONE
 -animate sprites-DONE

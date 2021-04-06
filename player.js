@@ -7,7 +7,7 @@ class Player {
     }
 
     draw() {
-        if(this.willIDie(this.xPos, this.yPos)){console.log('DEAD!!!');}
+        if(this.willIDie(this.xPos, this.yPos)){game.setup();}
         switch (this.facing) {
             case 'down':
                 this.animation.animate(game.playerDownAnim, this.xPos * 50, this.yPos * 50)
