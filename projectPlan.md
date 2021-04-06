@@ -30,15 +30,18 @@ plan :
 -constrain the movement within the frame of the image-DONE
 -add boxes and dont allow player to walk thorough them -DONE
 -add static ghost and mark player as spotted when in line of sight -DONE
--allow for boxes to be blocking line of sight
 -change fps to 30 and create a frame counter for movement/ animation-DONE
 -animate sprites-DONE
 -make ghosts move/change direction facing-DONE
 -create a fail state for when the player is seen (game should reset)-DONE
--create win state for when player reaches the door 
--create a level loader to load different level configurations and wire it up to win state
+-create win state for when player reaches the door- DONE
+-create a level loader to load different level configurations and wire it up to win state -DONE
 -add sound
--
+-add new box type that is high and blocks line of sight.
+-add a patrolling ghost type. 
+-add start screen.
+-add end screen. 
+
 
 
 TUESDAY-
