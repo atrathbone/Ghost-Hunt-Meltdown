@@ -1,9 +1,9 @@
 class Ghost {
-    constructor(x, y, type, facing) {
+    constructor(x, y, facing) {
         this.xPos = x;
         this.yPos = y;
         this.moveFrameCounter = 0;
-        this.type = type || 'gr';
+        // this.type = type || 'gr';
         this.facing = facing || 'left';
         this.animation = new Animation();
         this.dangerArea = [];

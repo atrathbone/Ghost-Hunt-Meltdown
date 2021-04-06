@@ -25,7 +25,8 @@ class Game {
         this.boxes.setup();
         this.ghosts = [];
         this.ghostAdder(this.currentLevel, 'gr');
-        this.ghostIndexes = game.levelParser(game.currentLevel, 'gr');
+        this.ghostAdder(this.currentLevel, 'gc');
+        //this.ghostIndexes = game.levelParser(game.currentLevel, 'gr');
         this.door = new Door();
     }
     preLoad() {
@@ -125,7 +126,8 @@ class Game {
     ghostAdder(level, typeOfGhost) {
         let indexes = this.levelParser(level, typeOfGhost);
         for (let i = 0; i < indexes.length; i++) {
-            this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50));
+            if(typeOfGhost==='gr'){this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50,'left'));}
+            if(typeOfGhost==='gc'){this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50,'down'));}
         }
     }
 
