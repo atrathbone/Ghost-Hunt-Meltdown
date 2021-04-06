@@ -43,7 +43,7 @@ plan :
 
 TUESDAY-
 GHOSTS-
--ghost faces different directions
+-ghost faces different directions-DONE
 -ghost can see
 -ghost can move/ and see
 

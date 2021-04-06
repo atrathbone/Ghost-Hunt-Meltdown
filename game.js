@@ -15,7 +15,7 @@ class Game {
     }
     setup() {
         this.levels = new Levels();
-        this.currentLevel = this.levels.levelOne;
+        this.currentLevel = this.levels.levelTwo;
         this.player = new Player();
         this.boxes = new Box();
         // this.player.setup(0, 0);
