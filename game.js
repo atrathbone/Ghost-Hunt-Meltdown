@@ -16,10 +16,10 @@ class Game {
         this.doorImageRight;
         this.doorImageLeft;
         this.vaseImage;
-        this.plantImage; 
+        this.plantImage;
         this.levels = new Levels();
     }
-    setup() { 
+    setup() {
         this.currentLevel = this.levels.levelList[this.levels.currentLevelIndex];
         this.player = new Player();
         this.boxes = new Box();
@@ -35,7 +35,7 @@ class Game {
     preLoad() {
         this.backgroundImage = loadImage('assets/individual-images/floor.png');
         this.boxImage = loadImage('assets/individual-images/box.png');
-        this.ghostImage = loadImage('assets/individual-images/ghost/ghostLeft1.png');
+        // this.ghostImage = loadImage('assets/individual-images/ghost/ghostLeft1.png');
         this.doorImageBottom = loadImage('assets/individual-images/doorBottom.png');
         this.doorImageTop = loadImage('assets/individual-images/doorTop.png');
         this.doorImageRight = loadImage('assets/individual-images/doorRight.png');
@@ -106,6 +106,38 @@ class Game {
             loadImage('assets/individual-images/ghost/ghostLeft5.png'),
             loadImage('assets/individual-images/ghost/ghostLeft6.png')
         ];
+        this.superGhostDownAnim = [
+            loadImage('assets/individual-images/super-ghost/superGhostDown1.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostDown2.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostDown3.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostDown4.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostDown5.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostDown6.png')
+        ]
+        this.superGhostUpAnim = [
+            loadImage('assets/individual-images/super-ghost/superGhostUp1.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostUp2.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostUp3.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostUp4.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostUp5.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostUp6.png')
+        ]
+        this.superGhostLeftAnim = [
+            loadImage('assets/individual-images/super-ghost/superGhostLeft1.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostLeft2.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostLeft3.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostLeft4.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostLeft5.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostLeft6.png')
+        ]
+        this.superGhostRightAnim = [
+            loadImage('assets/individual-images/super-ghost/superGhostRight1.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostRight2.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostRight3.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostRight4.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostRight5.png'),
+            loadImage('assets/individual-images/super-ghost/superGhostRight6.png')
+        ]
 
     }
     draw() {
@@ -134,12 +166,27 @@ class Game {
     ghostAdder(level, typeOfGhost) {
         let indexes = this.levelParser(level, typeOfGhost);
         for (let i = 0; i < indexes.length; i++) {
-            if (typeOfGhost === 'gr') {
+            switch (typeOfGhost) {
+                case 'gr':
                 this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'left'));
-            }
-            if (typeOfGhost === 'gc') {
+                    break;
+                case 'gc':
                 this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'down'));
+                    break;
+                case 'sr':
+                this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'left', true));
+                    break;
+                case 'sc':
+                this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'down', true));
+                    break;
             }
+            // if (typeOfGhost === 'gr') {
+            //     this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'left'));
+            // }
+            // if (typeOfGhost === 'gc') {
+            //     this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'down'));
+            // }
+
         }
     }
 
@@ -149,10 +196,9 @@ class Game {
 
     loadNextLevel() {
         console.log('NEXT LEVEL!!!!')
-        if(this.levels.currentLevelIndex<this.levels.levelList.length-1){
-            this.levels.currentLevelIndex ++;
-        }
-        else{
+        if (this.levels.currentLevelIndex < this.levels.levelList.length - 1) {
+            this.levels.currentLevelIndex++;
+        } else {
             this.levels.currentLevelIndex = 0;
         }
         this.setup();

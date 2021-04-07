@@ -1,15 +1,116 @@
 class Ghost {
-    constructor(x, y, facing) {
+    constructor(x, y, facing, superOrNot) {
         this.xPos = x;
         this.yPos = y;
         this.moveFrameCounter = 0;
-        // this.type = type || 'gr';
+        this.superOrNot = superOrNot || false;
         this.facing = facing || 'left';
         this.animation = new Animation();
         this.dangerArea = [];
     }
     draw() {
         this.debug();
+        if (this.superOrNot === false) {
+            this.normalBehaviour();
+        }
+        else {
+            this.superBehaviour();
+        }
+    }
+
+    lineOfSight() {
+        let tem = [];
+        switch (this.facing) {
+            case 'down':
+                this.dangerArea = [];
+                for (let i = this.yPos / 50; i <= 9; i++) {
+                    this.dangerArea.push([
+                        [this.xPos / 50],
+                        [i]
+                    ]);
+                }
+                for (let p of game.plant.indexes) {
+
+                    if (p[0] === this.xPos / 50 && p[1] > this.yPos / 50) {
+
+                        for (let i of this.dangerArea) {
+                            if (p[1] < i[1][0]) {
+                                i[1][0] = 'x';
+                                i[0][0] = 'x';
+                            }
+                        }
+                    }
+                }
+                break;
+            case 'up':
+                this.dangerArea = [];
+                for (let i = 0; i <= this.yPos / 50; i++) {
+                    this.dangerArea.push([
+                        [this.xPos / 50],
+                        [i]
+                    ]);
+                }
+                for (let p of game.plant.indexes) {
+
+                    if (p[0] === this.xPos / 50 && p[1] < this.yPos / 50) {
+
+                        for (let i of this.dangerArea) {
+                            if (p[1] > i[1][0]) {
+                                i[1][0] = 'x';
+                                i[0][0] = 'x';
+                            }
+                        }
+                    }
+                }
+                break;
+            case 'left':
+                this.dangerArea = [];
+                for (let i = 0; i <= this.xPos / 50; i++) {
+                    this.dangerArea.push([
+                        [i],
+                        [this.yPos / 50]
+                    ]);
+                }
+
+                for (let p of game.plant.indexes) {
+
+                    if (p[1] === this.yPos / 50 && p[0] < this.xPos / 50) {
+
+                        for (let i of this.dangerArea) {
+                            if (p[0] > i[0][0]) {
+                                i[1][0] = 'x';
+                                i[0][0] = 'x';
+                            }
+                        }
+                    }
+                }
+
+
+                break;
+            case 'right':
+                this.dangerArea = [];
+                for (let i = this.xPos / 50; i <= 9; i++) {
+                    this.dangerArea.push([
+                        [i],
+                        [this.yPos / 50]
+                    ]);
+                }
+                for (let p of game.plant.indexes) {
+
+                    if (p[1] === this.yPos / 50 && p[0] > this.xPos / 50) {
+
+                        for (let i of this.dangerArea) {
+                            if (p[0] < i[0][0]) {
+                                i[1][0] = 'x';
+                                i[0][0] = 'x';
+                            }
+                        }
+                    }
+                }
+                break;
+        }
+    }
+    normalBehaviour() {
         switch (this.facing) {
             case 'left':
                 this.lineOfSight();
@@ -53,98 +154,68 @@ class Ghost {
                 break;
         }
     }
-
-    lineOfSight() {
-        let tem = [];
+    superBehaviour() {
         switch (this.facing) {
-            case 'down':
-                this.dangerArea = [];
-                for (let i = this.yPos / 50; i <= 9; i++) {
-                    this.dangerArea.push([
-                        [this.xPos / 50],
-                        [i]
-                    ]);
+            case 'left':
+                this.lineOfSight();
+                this.animation.animate(game.superGhostLeftAnim, this.xPos, this.yPos);
+                if (this.moveFrameCounter < 23) {
+                    this.moveFrameCounter += 1;
+                } else {
+                    this.moveFrameCounter = 0;
+                    this.facing = 'right';
                 }
-                for (let p of game.plant.indexes) {
-
-                    if (p[0] === this.xPos/50 && p[1] > this.yPos/50) {
-
-                        for (let i of this.dangerArea) {
-                            if (p[1] < i[1][0]) {
-                                i[1][0] = 'x';
-                                i[0][0] = 'x';
-                            }
-                        }
-                    }
+                break;
+            case 'right':
+                this.lineOfSight();
+                this.animation.animate(game.superGhostRightAnim, this.xPos, this.yPos);
+                if (this.moveFrameCounter < 23) {
+                    this.moveFrameCounter += 1;
+                } else {
+                    this.moveFrameCounter = 0;
+                    this.facing = 'left';
+                }
+                break;
+            case 'down':
+                this.lineOfSight();
+                this.animation.animate(game.superGhostDownAnim, this.xPos, this.yPos);
+                if (this.moveFrameCounter < 23) {
+                    this.moveFrameCounter += 1;
+                } else {
+                    this.moveFrameCounter = 0;
+                    this.facing = 'up';
                 }
                 break;
             case 'up':
-                this.dangerArea = [];
-                for (let i = 0; i <= this.yPos / 50; i++) {
-                    this.dangerArea.push([
-                        [this.xPos / 50],
-                        [i]
-                    ]);
-                }
-                for (let p of game.plant.indexes) {
-
-                    if (p[0] === this.xPos/50 && p[1] < this.yPos/50) {
-
-                        for (let i of this.dangerArea) {
-                            if (p[1] > i[1][0]) {
-                                i[1][0] = 'x';
-                                i[0][0] = 'x';
-                            }
-                        }
-                    }
-                }
-                break;
-            case 'left':
-                this.dangerArea = [];
-                for (let i = 0; i <= this.xPos / 50; i++) {
-                    this.dangerArea.push([
-                        [i],
-                        [this.yPos / 50]
-                    ]);
-                }
-
-                for (let p of game.plant.indexes) {
-
-                    if (p[1] === this.yPos/50 && p[0] < this.xPos/50) {
-
-                        for (let i of this.dangerArea) {
-                            if (p[0] > i[0][0]) {
-                                i[1][0] = 'x';
-                                i[0][0] = 'x';
-                            }
-                        }
-                    }
-                }
-
-
-                break;
-            case 'right':
-                this.dangerArea = [];
-                for (let i = this.xPos / 50; i <= 9; i++) {
-                    this.dangerArea.push([
-                        [i],
-                        [this.yPos / 50]
-                    ]);
-                }
-                for (let p of game.plant.indexes) {
-
-                    if (p[1] === this.yPos/50 && p[0] > this.xPos/50) {
-
-                        for (let i of this.dangerArea) {
-                            if (p[0] < i[0][0]) {
-                                i[1][0] = 'x';
-                                i[0][0] = 'x';
-                            }
-                        }
-                    }
+                this.lineOfSight();
+                this.animation.animate(game.superGhostUpAnim, this.xPos, this.yPos);
+                if (this.moveFrameCounter < 23) {
+                    this.moveFrameCounter += 1;
+                } else {
+                    this.moveFrameCounter = 0;
+                    this.facing = 'down';
                 }
                 break;
         }
+    }
+    canIMove (){
+        // let myI = [futureX, futureY];
+        // let myIStr = myI.toString();
+        // let ifHeCanMove = true;
+
+        // for (let i = 0; i < game.boxes.indexes.length; i++) {
+        //     if (game.boxes.indexes[i].toString() === myIStr) {
+        //         console.log('you cant move');
+        //         ifHeCanMove = false;
+        //     }
+        // }
+        // for (let i = 0; i < game.plant.indexes.length; i++) {
+        //     if (game.plant.indexes[i].toString() === myIStr) {
+        //         console.log('you cant move');
+        //         ifHeCanMove = false;
+        //     }
+        // }
+        // return ifHeCanMove;
     }
     debug() {
         //    console.log(this.dangerArea);
