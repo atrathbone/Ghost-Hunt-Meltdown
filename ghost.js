@@ -65,6 +65,18 @@ class Ghost {
                         [i]
                     ]);
                 }
+                for (let p of game.plant.indexes) {
+
+                    if (p[0] === this.xPos/50 && p[1] > this.yPos/50) {
+
+                        for (let i of this.dangerArea) {
+                            if (p[1] < i[1][0]) {
+                                i[1][0] = 'x';
+                                i[0][0] = 'x';
+                            }
+                        }
+                    }
+                }
                 break;
             case 'up':
                 this.dangerArea = [];
@@ -73,6 +85,18 @@ class Ghost {
                         [this.xPos / 50],
                         [i]
                     ]);
+                }
+                for (let p of game.plant.indexes) {
+
+                    if (p[0] === this.xPos/50 && p[1] < this.yPos/50) {
+
+                        for (let i of this.dangerArea) {
+                            if (p[1] > i[1][0]) {
+                                i[1][0] = 'x';
+                                i[0][0] = 'x';
+                            }
+                        }
+                    }
                 }
                 break;
             case 'left':
@@ -106,6 +130,18 @@ class Ghost {
                         [i],
                         [this.yPos / 50]
                     ]);
+                }
+                for (let p of game.plant.indexes) {
+
+                    if (p[1] === this.yPos/50 && p[0] > this.xPos/50) {
+
+                        for (let i of this.dangerArea) {
+                            if (p[0] < i[0][0]) {
+                                i[1][0] = 'x';
+                                i[0][0] = 'x';
+                            }
+                        }
+                    }
                 }
                 break;
         }
