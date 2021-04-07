@@ -38,8 +38,8 @@ plan :
 -create a level loader to load different level configurations and wire it up to win state -DONE
 
 TODAY
--add new levels
--add new box type that is high and blocks line of sight.
+-add new levels-(add as I got to test functionality of new elements).
+-add plant that blocks line of sight.-add image and ge to render in position-DONE-dont let the player walk in to it--dont let the ghosts see through it--
 -add a patrolling ghost type. 
 -add start screen.
  TOMORROW

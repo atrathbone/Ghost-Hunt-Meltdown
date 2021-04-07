@@ -104,6 +104,12 @@ class Player {
                 ifHeCanMove = false;
             }
         }
+        for (let i = 0; i < game.plant.indexes.length; i++) {
+            if (game.plant.indexes[i].toString() === myIStr) {
+                console.log('you cant move');
+                ifHeCanMove = false;
+            }
+        }
         return ifHeCanMove;
     }
 
