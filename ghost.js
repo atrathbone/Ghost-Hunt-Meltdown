@@ -86,7 +86,7 @@ class Ghost {
 
                 for (let p of game.plant.indexes) {
 
-                    if (p[1] === this.yPos/50) {
+                    if (p[1] === this.yPos/50 && p[0] < this.xPos/50) {
 
                         for (let i of this.dangerArea) {
                             if (p[0] > i[0][0]) {
