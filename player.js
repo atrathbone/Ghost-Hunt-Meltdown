@@ -120,6 +120,8 @@ class Player {
 
         for (let ghost of game.ghosts) {
             for (let i = 0; i < ghost.dangerArea.length; i++) {
+                //console.log(ghost.dangerArea[i].toString());
+                console.log(ghost.dangerArea[i].toString());
                 if (ghost.dangerArea[i].toString() === myIStr) {
                     ifHeWillDie = true;
                 }
@@ -131,7 +133,7 @@ class Player {
     haveIcollected(currentX, currentY) {
         let myI = [currentX, currentY];
         let myIStr = myI.toString();
-
+        // console.log(myIStr);
         for (let vase of game.vase.indexes) {
             for (let i = 0; i < game.vase.indexes.length; i++) {
                 if (game.vase.indexes[i].toString() === myIStr) {
@@ -150,7 +152,7 @@ class Player {
         for (let door of game.door.indexes) {
             for (let i = 0; i < game.door.indexes.length; i++) {
                 if (game.door.indexes[i].toString() === myIStr) {
-                    if(this.hasCollected === true){
+                    if (this.hasCollected === true) {
                         game.loadNextLevel();
                     }
                     return;

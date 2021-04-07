@@ -9,6 +9,7 @@ class Ghost {
         this.dangerArea = [];
     }
     draw() {
+        this.debug();
         switch (this.facing) {
             case 'left':
                 this.lineOfSight();
@@ -82,15 +83,20 @@ class Ghost {
                         [this.yPos / 50]
                     ]);
                 }
-                // console.log(game.boxes.indexes);
-                // tem = [];
-                // for (let box of game.boxes.indexes) {
-                //     console.log(box);
-                //     if (box[1] === this.yPos && box[0] < this.xPos) {
 
-                //         temp.push(box);
-                //     }
-                // }
+                for (let p of game.plant.indexes) {
+
+                    if (p[1] === this.yPos/50) {
+
+                        for (let i of this.dangerArea) {
+                            if (p[0] > i[0][0]) {
+                                i[1][0] = 'x';
+                                i[0][0] = 'x';
+                            }
+                        }
+                    }
+                }
+
 
                 break;
             case 'right':
@@ -103,5 +109,8 @@ class Ghost {
                 }
                 break;
         }
+    }
+    debug() {
+        //    console.log(this.dangerArea);
     }
 }
