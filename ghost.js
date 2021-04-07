@@ -14,6 +14,8 @@ class Ghost {
             this.normalBehaviour();
         }
         else {
+            console.log('super ghost added')
+            // this.normalBehaviour();
             this.superBehaviour();
         }
     }

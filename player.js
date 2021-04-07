@@ -100,13 +100,13 @@ class Player {
 
         for (let i = 0; i < game.boxes.indexes.length; i++) {
             if (game.boxes.indexes[i].toString() === myIStr) {
-                console.log('you cant move');
+                // console.log('you cant move');
                 ifHeCanMove = false;
             }
         }
         for (let i = 0; i < game.plant.indexes.length; i++) {
             if (game.plant.indexes[i].toString() === myIStr) {
-                console.log('you cant move');
+                // console.log('you cant move');
                 ifHeCanMove = false;
             }
         }
@@ -121,7 +121,7 @@ class Player {
         for (let ghost of game.ghosts) {
             for (let i = 0; i < ghost.dangerArea.length; i++) {
                 //console.log(ghost.dangerArea[i].toString());
-                console.log(ghost.dangerArea[i].toString());
+                // console.log(ghost.dangerArea[i].toString());
                 if (ghost.dangerArea[i].toString() === myIStr) {
                     ifHeWillDie = true;
                 }

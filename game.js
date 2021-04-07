@@ -27,6 +27,8 @@ class Game {
         this.ghosts = [];
         this.ghostAdder(this.currentLevel, 'gr');
         this.ghostAdder(this.currentLevel, 'gc');
+        this.ghostAdder(this.currentLevel, 'sr');
+        this.ghostAdder(this.currentLevel, 'sc');
         //this.ghostIndexes = game.levelParser(game.currentLevel, 'gr');
         this.door = new Door();
         this.vase = new Vase();
@@ -195,7 +197,7 @@ class Game {
     }
 
     loadNextLevel() {
-        console.log('NEXT LEVEL!!!!')
+        // console.log('NEXT LEVEL!!!!')
         if (this.levels.currentLevelIndex < this.levels.levelList.length - 1) {
             this.levels.currentLevelIndex++;
         } else {
