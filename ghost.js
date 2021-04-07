@@ -161,19 +161,22 @@ class Ghost {
             case 'left':
                 this.lineOfSight();
                 this.animation.animate(game.superGhostLeftAnim, this.xPos, this.yPos);
-                if (this.moveFrameCounter < 23) {
+                if (this.moveFrameCounter < 5) {
                     this.moveFrameCounter += 1;
                 } else {
                     this.moveFrameCounter = 0;
                     let futureX = this.xPos - 1 * 50;
                     let futureY = this.yPos;
-                    if(this.canIMove(futureX,futureY)){
-                        if (this.xPos/50 > 1){
+                    if (this.canIMove(futureX, futureY)) {
+                        if (this.xPos / 50 > 1) {
                             this.xPos = futureX;
+                        } else {
+                            this.facing = 'right';
                         }
+                    }else {
+                        this.facing = 'right';
                     }
-                    else {this.facing = 'right';}
-                    
+
                 }
                 // let futureX = this.xPos - 1*50;
                 // let futureY = this.yPos;
@@ -189,37 +192,67 @@ class Ghost {
             case 'right':
                 this.lineOfSight();
                 this.animation.animate(game.superGhostRightAnim, this.xPos, this.yPos);
-                if (this.moveFrameCounter < 23) {
+                if (this.moveFrameCounter < 5) {
                     this.moveFrameCounter += 1;
                 } else {
                     this.moveFrameCounter = 0;
-                    this.facing = 'left';
+                    let futureX = this.xPos + 1 * 50;
+                    let futureY = this.yPos;
+                    if (this.canIMove(futureX, futureY)) {
+                        if (this.xPos / 50 < 9) {
+                            this.xPos = futureX;
+                        } else {
+                            this.facing = 'left';
+                        }
+                    }else {
+                        this.facing = 'left';
+                    }
                 }
                 break;
             case 'down':
                 this.lineOfSight();
                 this.animation.animate(game.superGhostDownAnim, this.xPos, this.yPos);
-                if (this.moveFrameCounter < 23) {
+                if (this.moveFrameCounter < 5) {
                     this.moveFrameCounter += 1;
                 } else {
                     this.moveFrameCounter = 0;
-                    this.facing = 'up';
+                    let futureX = this.xPos;
+                    let futureY = this.yPos + 1 * 50;
+                    if (this.canIMove(futureX, futureY)) {
+                        if (this.yPos / 50 < 9) {
+                            this.yPos = futureY;
+                        } else {
+                            this.facing = 'up';
+                        }
+                    }else {
+                        this.facing = 'up';
+                    }
                 }
                 break;
             case 'up':
                 this.lineOfSight();
                 this.animation.animate(game.superGhostUpAnim, this.xPos, this.yPos);
-                if (this.moveFrameCounter < 23) {
+                if (this.moveFrameCounter < 5) {
                     this.moveFrameCounter += 1;
                 } else {
                     this.moveFrameCounter = 0;
-                    this.facing = 'down';
+                    let futureX = this.xPos;
+                    let futureY = this.yPos - 1 * 50;
+                    if (this.canIMove(futureX, futureY)) {
+                        if (this.yPos / 50 > 1) {
+                            this.yPos = futureY;
+                        } else {
+                            this.facing = 'down';
+                        }
+                    }else {
+                        this.facing = 'down';
+                    }
                 }
                 break;
         }
     }
     canIMove(futureX, futureY) {
-        let myI = [futureX/50, futureY/50];
+        let myI = [futureX / 50, futureY / 50];
         let myIStr = myI.toString();
         let ifHeCanMove = true;
 
