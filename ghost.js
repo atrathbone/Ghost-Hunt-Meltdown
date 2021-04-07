@@ -9,13 +9,10 @@ class Ghost {
         this.dangerArea = [];
     }
     draw() {
-        console.log(this.xPos, this.yPos)
-        this.debug();
         if (this.superOrNot === false) {
             this.normalBehaviour();
         } else {
             console.log('super ghost added')
-            // this.normalBehaviour();
             this.superBehaviour();
         }
     }
@@ -168,26 +165,15 @@ class Ghost {
                     let futureX = this.xPos - 1 * 50;
                     let futureY = this.yPos;
                     if (this.canIMove(futureX, futureY)) {
-                        if (this.xPos / 50 > 1) {
+                        if (this.xPos / 50 >= 1) {
                             this.xPos = futureX;
                         } else {
                             this.facing = 'right';
                         }
-                    }else {
+                    } else {
                         this.facing = 'right';
                     }
-
                 }
-                // let futureX = this.xPos - 1*50;
-                // let futureY = this.yPos;
-                // if (this.canIMove(futureX, futureY)) {
-                //     if (this.xPos/50 >= 1) {
-                //         this.xPos -= 1*50;
-                //     }
-                // }
-                // else {
-                //     this.facing = 'right';
-                // }
                 break;
             case 'right':
                 this.lineOfSight();
@@ -204,7 +190,7 @@ class Ghost {
                         } else {
                             this.facing = 'left';
                         }
-                    }else {
+                    } else {
                         this.facing = 'left';
                     }
                 }
@@ -224,7 +210,7 @@ class Ghost {
                         } else {
                             this.facing = 'up';
                         }
-                    }else {
+                    } else {
                         this.facing = 'up';
                     }
                 }
@@ -239,12 +225,12 @@ class Ghost {
                     let futureX = this.xPos;
                     let futureY = this.yPos - 1 * 50;
                     if (this.canIMove(futureX, futureY)) {
-                        if (this.yPos / 50 > 1) {
+                        if (this.yPos / 50 >= 1) {
                             this.yPos = futureY;
                         } else {
                             this.facing = 'down';
                         }
-                    }else {
+                    } else {
                         this.facing = 'down';
                     }
                 }
@@ -269,8 +255,5 @@ class Ghost {
             }
         }
         return ifHeCanMove;
-    }
-    debug() {
-        //    console.log(this.dangerArea);
     }
 }

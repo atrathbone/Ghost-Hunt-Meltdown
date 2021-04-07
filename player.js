@@ -97,16 +97,13 @@ class Player {
         let myI = [futureX, futureY];
         let myIStr = myI.toString();
         let ifHeCanMove = true;
-
         for (let i = 0; i < game.boxes.indexes.length; i++) {
             if (game.boxes.indexes[i].toString() === myIStr) {
-                // console.log('you cant move');
                 ifHeCanMove = false;
             }
         }
         for (let i = 0; i < game.plant.indexes.length; i++) {
             if (game.plant.indexes[i].toString() === myIStr) {
-                // console.log('you cant move');
                 ifHeCanMove = false;
             }
         }
@@ -117,11 +114,8 @@ class Player {
         let myI = [currentX, currentY];
         let myIStr = myI.toString();
         let ifHeWillDie = false;
-
         for (let ghost of game.ghosts) {
             for (let i = 0; i < ghost.dangerArea.length; i++) {
-                //console.log(ghost.dangerArea[i].toString());
-                // console.log(ghost.dangerArea[i].toString());
                 if (ghost.dangerArea[i].toString() === myIStr) {
                     ifHeWillDie = true;
                 }
@@ -133,7 +127,6 @@ class Player {
     haveIcollected(currentX, currentY) {
         let myI = [currentX, currentY];
         let myIStr = myI.toString();
-        // console.log(myIStr);
         for (let vase of game.vase.indexes) {
             for (let i = 0; i < game.vase.indexes.length; i++) {
                 if (game.vase.indexes[i].toString() === myIStr) {
@@ -148,7 +141,6 @@ class Player {
     haveIReachedTheDoor(currentX, currentY) {
         let myI = [currentX, currentY];
         let myIStr = myI.toString();
-
         for (let door of game.door.indexes) {
             for (let i = 0; i < game.door.indexes.length; i++) {
                 if (game.door.indexes[i].toString() === myIStr) {
