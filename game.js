@@ -115,7 +115,7 @@ class Game {
             loadImage('assets/individual-images/super-ghost/superGhostDown4.png'),
             loadImage('assets/individual-images/super-ghost/superGhostDown5.png'),
             loadImage('assets/individual-images/super-ghost/superGhostDown6.png')
-        ]
+        ];
         this.superGhostUpAnim = [
             loadImage('assets/individual-images/super-ghost/superGhostUp1.png'),
             loadImage('assets/individual-images/super-ghost/superGhostUp2.png'),
@@ -123,7 +123,7 @@ class Game {
             loadImage('assets/individual-images/super-ghost/superGhostUp4.png'),
             loadImage('assets/individual-images/super-ghost/superGhostUp5.png'),
             loadImage('assets/individual-images/super-ghost/superGhostUp6.png')
-        ]
+        ];
         this.superGhostLeftAnim = [
             loadImage('assets/individual-images/super-ghost/superGhostLeft1.png'),
             loadImage('assets/individual-images/super-ghost/superGhostLeft2.png'),
@@ -131,7 +131,7 @@ class Game {
             loadImage('assets/individual-images/super-ghost/superGhostLeft4.png'),
             loadImage('assets/individual-images/super-ghost/superGhostLeft5.png'),
             loadImage('assets/individual-images/super-ghost/superGhostLeft6.png')
-        ]
+        ];
         this.superGhostRightAnim = [
             loadImage('assets/individual-images/super-ghost/superGhostRight1.png'),
             loadImage('assets/individual-images/super-ghost/superGhostRight2.png'),
@@ -139,8 +139,21 @@ class Game {
             loadImage('assets/individual-images/super-ghost/superGhostRight4.png'),
             loadImage('assets/individual-images/super-ghost/superGhostRight5.png'),
             loadImage('assets/individual-images/super-ghost/superGhostRight6.png')
-        ]
-
+        ];
+        this.titleScreenAnim = [
+            loadImage('assets/individual-images/title-screen/title-screen1.png'),
+            loadImage('assets/individual-images/title-screen/title-screen2.png'),
+            loadImage('assets/individual-images/title-screen/title-screen3.png'),
+            loadImage('assets/individual-images/title-screen/title-screen4.png'),
+            loadImage('assets/individual-images/title-screen/title-screen5.png'),
+            loadImage('assets/individual-images/title-screen/title-screen6.png'),
+            loadImage('assets/individual-images/title-screen/title-screen7.png'),
+            loadImage('assets/individual-images/title-screen/title-screen8.png'),
+            loadImage('assets/individual-images/title-screen/title-screen9.png'),
+            loadImage('assets/individual-images/title-screen/title-screen10.png'),
+            loadImage('assets/individual-images/title-screen/title-screen11.png'),
+            loadImage('assets/individual-images/title-screen/title-screen12.png')
+          ];
     }
     draw() {
         clear();

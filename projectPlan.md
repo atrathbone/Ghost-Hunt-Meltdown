@@ -40,7 +40,7 @@ plan :
 TODAY
 -add new levels-(add as I got to test functionality of new elements).
 -add plant that blocks line of sight.-add image and ge to render in position-DONE-dont let the player walk in to it-DONE-dont let the ghosts see through it-done-
--add a patrolling ghost type. 
+-add a patrolling ghost type.-DONE 
 -add start screen.
  TOMORROW
 -add sound
