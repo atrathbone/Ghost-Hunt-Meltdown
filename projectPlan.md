@@ -36,22 +36,15 @@ plan :
 -create a fail state for when the player is seen (game should reset)-DONE
 -create win state for when player reaches the door- DONE
 -create a level loader to load different level configurations and wire it up to win state -DONE
--add sound
+
+TODAY
+-add new levels
 -add new box type that is high and blocks line of sight.
 -add a patrolling ghost type. 
 -add start screen.
--add end screen. 
+ TOMORROW
+-add sound
+-add end screen
 
 
-
-TUESDAY-
-GHOSTS-
--ghost faces different directions-DONE
--ghost can see-DONE
--ghost can move/ and see- THIS WILL NOW COME LAST
-
--as above but with columns 
-LEVELLOADER-
--add door and make it load another level 
--add further properties to detrmine if ghosts are moving or not, and where the player begins 
  

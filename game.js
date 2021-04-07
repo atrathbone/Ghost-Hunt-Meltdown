@@ -16,10 +16,10 @@ class Game {
         this.doorImageRight;
         this.doorImageLeft;
         this.vaseImage;
+        this.plantImage; 
         this.levels = new Levels();
     }
-    setup() {
-       
+    setup() { 
         this.currentLevel = this.levels.levelList[this.levels.currentLevelIndex];
         this.player = new Player();
         this.boxes = new Box();
@@ -30,6 +30,7 @@ class Game {
         //this.ghostIndexes = game.levelParser(game.currentLevel, 'gr');
         this.door = new Door();
         this.vase = new Vase();
+        this.plant = new Plant();
     }
     preLoad() {
         this.backgroundImage = loadImage('assets/individual-images/floor.png');
@@ -40,6 +41,7 @@ class Game {
         this.doorImageRight = loadImage('assets/individual-images/doorRight.png');
         this.doorImageLeft = loadImage('assets/individual-images/doorLeft.png');
         this.vaseImage = loadImage('assets/individual-images/vase.png');
+        this.plantImage = loadImage('assets/individual-images/plant.png');
         this.playerDownAnim = [
             loadImage('assets/individual-images/player/playerDown1.png'),
             loadImage('assets/individual-images/player/playerDown2.png'),
@@ -107,6 +109,7 @@ class Game {
 
     }
     draw() {
+        clear();
         image(this.backgroundImage, 0, 0, width, height)
         this.door.draw();
         this.player.draw();
@@ -115,6 +118,7 @@ class Game {
         this.ghosts.forEach(function (ghost) {
             ghost.draw();
         })
+        this.plant.draw();
     }
     levelParser(level, gameObjectString) {
         let indexes = [];
