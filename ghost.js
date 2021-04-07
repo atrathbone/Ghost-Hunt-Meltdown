@@ -9,11 +9,11 @@ class Ghost {
         this.dangerArea = [];
     }
     draw() {
+        console.log(this.xPos, this.yPos)
         this.debug();
         if (this.superOrNot === false) {
             this.normalBehaviour();
-        }
-        else {
+        } else {
             console.log('super ghost added')
             // this.normalBehaviour();
             this.superBehaviour();
@@ -165,8 +165,26 @@ class Ghost {
                     this.moveFrameCounter += 1;
                 } else {
                     this.moveFrameCounter = 0;
-                    this.facing = 'right';
+                    let futureX = this.xPos - 1 * 50;
+                    let futureY = this.yPos;
+                    if(this.canIMove(futureX,futureY)){
+                        if (this.xPos/50 > 1){
+                            this.xPos = futureX;
+                        }
+                    }
+                    else {this.facing = 'right';}
+                    
                 }
+                // let futureX = this.xPos - 1*50;
+                // let futureY = this.yPos;
+                // if (this.canIMove(futureX, futureY)) {
+                //     if (this.xPos/50 >= 1) {
+                //         this.xPos -= 1*50;
+                //     }
+                // }
+                // else {
+                //     this.facing = 'right';
+                // }
                 break;
             case 'right':
                 this.lineOfSight();
@@ -200,24 +218,24 @@ class Ghost {
                 break;
         }
     }
-    canIMove (){
-        // let myI = [futureX, futureY];
-        // let myIStr = myI.toString();
-        // let ifHeCanMove = true;
+    canIMove(futureX, futureY) {
+        let myI = [futureX/50, futureY/50];
+        let myIStr = myI.toString();
+        let ifHeCanMove = true;
 
-        // for (let i = 0; i < game.boxes.indexes.length; i++) {
-        //     if (game.boxes.indexes[i].toString() === myIStr) {
-        //         console.log('you cant move');
-        //         ifHeCanMove = false;
-        //     }
-        // }
-        // for (let i = 0; i < game.plant.indexes.length; i++) {
-        //     if (game.plant.indexes[i].toString() === myIStr) {
-        //         console.log('you cant move');
-        //         ifHeCanMove = false;
-        //     }
-        // }
-        // return ifHeCanMove;
+        for (let i = 0; i < game.boxes.indexes.length; i++) {
+            if (game.boxes.indexes[i].toString() === myIStr) {
+                console.log('you cant move');
+                ifHeCanMove = false;
+            }
+        }
+        for (let i = 0; i < game.plant.indexes.length; i++) {
+            if (game.plant.indexes[i].toString() === myIStr) {
+                console.log('you cant move');
+                ifHeCanMove = false;
+            }
+        }
+        return ifHeCanMove;
     }
     debug() {
         //    console.log(this.dangerArea);
