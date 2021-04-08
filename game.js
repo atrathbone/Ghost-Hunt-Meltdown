@@ -8,13 +8,16 @@ class Game {
         this.boxes = new Box();
         this.boxes.setup();
         this.ghosts = [];
+        this.demonSpawn = new DemonSpawn();
         this.ghostAdder(this.currentLevel, 'gr');
         this.ghostAdder(this.currentLevel, 'gc');
         this.ghostAdder(this.currentLevel, 'sr');
         this.ghostAdder(this.currentLevel, 'sc');
+        this.ghostAdder(this.currentLevel, 'ds');
         this.door = new Door();
         this.vase = new Vase();
         this.plant = new Plant();
+        
     }
     preLoad() {
         soundFormats('ogg');
@@ -31,6 +34,7 @@ class Game {
         this.doorImageLeft = loadImage('assets/individual-images/doorLeft.png');
         this.vaseImage = loadImage('assets/individual-images/vase.png');
         this.plantImage = loadImage('assets/individual-images/plant.png');
+        this.demonSpawnImage = loadImage('assets/individual-images/pentagram.png');
         this.playerDownAnim = [
             loadImage('assets/individual-images/player/playerDown1.png'),
             loadImage('assets/individual-images/player/playerDown2.png'),
@@ -152,6 +156,12 @@ class Game {
             loadImage('assets/individual-images/s-ghost/S-ghost35.png'),
             loadImage('assets/individual-images/s-ghost/S-ghost36.png')
         ];
+        this.demonicGhostAnim = [
+            loadImage('assets/individual-images/demonic-ghost/demonic-ghost1.png'),
+            loadImage('assets/individual-images/demonic-ghost/demonic-ghost2.png'),
+            loadImage('assets/individual-images/demonic-ghost/demonic-ghost3.png'),
+            loadImage('assets/individual-images/demonic-ghost/demonic-ghost4.png')
+        ];
         this.titleScreenAnim = [
             loadImage('assets/individual-images/title-screen/title-screen1.png'),
             loadImage('assets/individual-images/title-screen/title-screen2.png'),
@@ -165,12 +175,13 @@ class Game {
             loadImage('assets/individual-images/title-screen/title-screen10.png'),
             loadImage('assets/individual-images/title-screen/title-screen11.png'),
             loadImage('assets/individual-images/title-screen/title-screen12.png')
-          ];
+        ];
     }
     draw() {
         clear();
         image(this.backgroundImage, 0, 0, width, height)
         this.door.draw();
+        this.demonSpawn.draw();
         this.player.draw();
         this.boxes.draw();
         this.vase.draw();
@@ -195,16 +206,19 @@ class Game {
         for (let i = 0; i < indexes.length; i++) {
             switch (typeOfGhost) {
                 case 'gr':
-                this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'left'));
+                    this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'left'));
                     break;
                 case 'gc':
-                this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'down'));
+                    this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'down'));
                     break;
                 case 'sr':
-                this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'left', true));
+                    this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'left', true));
                     break;
                 case 'sc':
-                this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'down', true));
+                    this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'down', true));
+                    break;
+                case 'ds':
+                    this.ghosts.push(new DemonicGhost());
                     break;
             }
         }

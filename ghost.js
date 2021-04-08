@@ -3,7 +3,7 @@ class Ghost {
         this.xPos = x;
         this.yPos = y;
         this.moveFrameCounter = 0;
-        this.superOrNot = superOrNot || false;
+        this.superOrNot = superOrNot || false; 
         this.facing = facing || 'left';
         this.animation = new Animation();
         this.dangerArea = [];
