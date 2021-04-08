@@ -27,7 +27,7 @@ p > span {
 }
 
 #p5 {
-  background-image: url("/assets/house-background.png");
+  background-image: url("assets/house-background.png");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: 800px 700px;
