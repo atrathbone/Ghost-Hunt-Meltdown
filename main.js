@@ -34,23 +34,25 @@ function preload() {
 }
 
 function keyPressed() {
+  console.log(`key:${key} key code:${keyCode}`)
   if(isStarted=== false){
     if (keyCode === ENTER){
+      game.music.loop();
       isStarted = true; 
     }
   }
   else{
     switch (keyCode) {
-      case LEFT_ARROW:
+      case 65:
         game.player.moveLeft('left');
         break;
-      case RIGHT_ARROW:
+      case 68:
         game.player.moveRight('right');
         break;
-      case UP_ARROW:
+      case 87:
         game.player.moveUp('up');
         break;
-      case DOWN_ARROW:
+      case 83:
         game.player.moveDown('down');
         break;
     }

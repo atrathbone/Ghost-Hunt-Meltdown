@@ -13,20 +13,21 @@ class Player {
             this.haveIcollected(this.xPos, this.yPos);
         }
         if (this.willIDie(this.xPos, this.yPos)) {
+            game.deathSFX.play();
             game.setup();
         }
         switch (this.facing) {
             case 'down':
-                this.animation.animate(game.playerDownAnim, this.xPos * 50, this.yPos * 50)
+                this.animation.animate(game.playerDownAnim, this.xPos * 50, this.yPos * 50,5)
                 break;
             case 'up':
-                this.animation.animate(game.playerUpAnim, this.xPos * 50, this.yPos * 50)
+                this.animation.animate(game.playerUpAnim, this.xPos * 50, this.yPos * 50,5)
                 break;
             case 'left':
-                this.animation.animate(game.playerLeftAnim, this.xPos * 50, this.yPos * 50)
+                this.animation.animate(game.playerLeftAnim, this.xPos * 50, this.yPos * 50,5)
                 break;
             case 'right':
-                this.animation.animate(game.playerRightAnim, this.xPos * 50, this.yPos * 50)
+                this.animation.animate(game.playerRightAnim, this.xPos * 50, this.yPos * 50,5)
                 break;
         }
     }

@@ -1,22 +1,5 @@
 class Game {
     constructor() {
-        this.backgroundImage;
-        this.boxImage;
-        this.ghostImage;
-        this.playerDownAnim;
-        this.playerUpAnim;
-        this.playerLeftAnim;
-        this.playerRightAnim;
-        this.ghostDownAnim;
-        this.ghostUpAnim;
-        this.playerLeftAnim;
-        this.ghostRightAnim;
-        this.doorImageTop;
-        this.doorImageBottom;
-        this.doorImageRight;
-        this.doorImageLeft;
-        this.vaseImage;
-        this.plantImage;
         this.levels = new Levels();
     }
     setup() {
@@ -29,15 +12,19 @@ class Game {
         this.ghostAdder(this.currentLevel, 'gc');
         this.ghostAdder(this.currentLevel, 'sr');
         this.ghostAdder(this.currentLevel, 'sc');
-        //this.ghostIndexes = game.levelParser(game.currentLevel, 'gr');
         this.door = new Door();
         this.vase = new Vase();
         this.plant = new Plant();
     }
     preLoad() {
+        soundFormats('ogg');
+        this.music = loadSound('assets/GHM-music.ogg');
+        this.doorSFX = loadSound('assets/sfx/door.ogg')
+        this.deathSFX = loadSound('assets/sfx/death.ogg');
+        this.vaseSFX = loadSound('assets/sfx/vase.ogg');
+        this.demonicGhostSFX = loadSound('assets/sfx/demented-ghost.ogg');
         this.backgroundImage = loadImage('assets/individual-images/floor.png');
         this.boxImage = loadImage('assets/individual-images/box.png');
-        // this.ghostImage = loadImage('assets/individual-images/ghost/ghostLeft1.png');
         this.doorImageBottom = loadImage('assets/individual-images/doorBottom.png');
         this.doorImageTop = loadImage('assets/individual-images/doorTop.png');
         this.doorImageRight = loadImage('assets/individual-images/doorRight.png');
@@ -109,36 +96,61 @@ class Game {
             loadImage('assets/individual-images/ghost/ghostLeft6.png')
         ];
         this.superGhostDownAnim = [
-            loadImage('assets/individual-images/super-ghost/superGhostDown1.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostDown2.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostDown3.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostDown4.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostDown5.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostDown6.png')
+            loadImage('assets/individual-images/s-ghost/S-ghost1.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost2.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost3.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost4.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost5.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost6.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost7.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost8.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost9.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost10.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost11.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost12.png')
+
         ];
         this.superGhostUpAnim = [
-            loadImage('assets/individual-images/super-ghost/superGhostUp1.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostUp2.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostUp3.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostUp4.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostUp5.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostUp6.png')
+            loadImage('assets/individual-images/s-ghost/S-ghost13.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost14.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost15.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost16.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost17.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost18.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost19.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost20.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost21.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost22.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost23.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost24.png')
         ];
         this.superGhostLeftAnim = [
-            loadImage('assets/individual-images/super-ghost/superGhostLeft1.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostLeft2.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostLeft3.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostLeft4.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostLeft5.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostLeft6.png')
+            loadImage('assets/individual-images/s-ghost/S-ghost37.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost38.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost39.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost40.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost41.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost42.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost43.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost44.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost45.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost46.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost47.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost48.png')
         ];
         this.superGhostRightAnim = [
-            loadImage('assets/individual-images/super-ghost/superGhostRight1.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostRight2.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostRight3.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostRight4.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostRight5.png'),
-            loadImage('assets/individual-images/super-ghost/superGhostRight6.png')
+            loadImage('assets/individual-images/s-ghost/S-ghost25.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost26.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost27.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost28.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost29.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost30.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost31.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost32.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost33.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost34.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost35.png'),
+            loadImage('assets/individual-images/s-ghost/S-ghost36.png')
         ];
         this.titleScreenAnim = [
             loadImage('assets/individual-images/title-screen/title-screen1.png'),
@@ -195,13 +207,6 @@ class Game {
                 this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'down', true));
                     break;
             }
-            // if (typeOfGhost === 'gr') {
-            //     this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'left'));
-            // }
-            // if (typeOfGhost === 'gc') {
-            //     this.ghosts.push(new Ghost(indexes[i][0] * 50, indexes[i][1] * 50, 'down'));
-            // }
-
         }
     }
 
@@ -210,10 +215,11 @@ class Game {
     }
 
     loadNextLevel() {
-        // console.log('NEXT LEVEL!!!!')
         if (this.levels.currentLevelIndex < this.levels.levelList.length - 1) {
+            game.doorSFX.play();
             this.levels.currentLevelIndex++;
         } else {
+            game.doorSFX.play();
             this.levels.currentLevelIndex = 0;
         }
         this.setup();

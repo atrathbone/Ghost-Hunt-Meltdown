@@ -113,7 +113,7 @@ class Ghost {
         switch (this.facing) {
             case 'left':
                 this.lineOfSight();
-                this.animation.animate(game.ghostLeftAnim, this.xPos, this.yPos);
+                this.animation.animate(game.ghostLeftAnim, this.xPos, this.yPos,5);
                 if (this.moveFrameCounter < 23) {
                     this.moveFrameCounter += 1;
                 } else {
@@ -123,7 +123,7 @@ class Ghost {
                 break;
             case 'right':
                 this.lineOfSight();
-                this.animation.animate(game.ghostRightAnim, this.xPos, this.yPos);
+                this.animation.animate(game.ghostRightAnim, this.xPos, this.yPos,5);
                 if (this.moveFrameCounter < 23) {
                     this.moveFrameCounter += 1;
                 } else {
@@ -133,7 +133,7 @@ class Ghost {
                 break;
             case 'down':
                 this.lineOfSight();
-                this.animation.animate(game.ghostDownAnim, this.xPos, this.yPos);
+                this.animation.animate(game.ghostDownAnim, this.xPos, this.yPos,5);
                 if (this.moveFrameCounter < 23) {
                     this.moveFrameCounter += 1;
                 } else {
@@ -143,7 +143,7 @@ class Ghost {
                 break;
             case 'up':
                 this.lineOfSight();
-                this.animation.animate(game.ghostUpAnim, this.xPos, this.yPos);
+                this.animation.animate(game.ghostUpAnim, this.xPos, this.yPos,5);
                 if (this.moveFrameCounter < 23) {
                     this.moveFrameCounter += 1;
                 } else {
@@ -157,8 +157,8 @@ class Ghost {
         switch (this.facing) {
             case 'left':
                 this.lineOfSight();
-                this.animation.animate(game.superGhostLeftAnim, this.xPos, this.yPos);
-                if (this.moveFrameCounter < 5) {
+                this.animation.animate(game.superGhostLeftAnim, this.xPos, this.yPos,11);
+                if (this.moveFrameCounter < 11) {
                     this.moveFrameCounter += 1;
                 } else {
                     this.moveFrameCounter = 0;
@@ -177,8 +177,8 @@ class Ghost {
                 break;
             case 'right':
                 this.lineOfSight();
-                this.animation.animate(game.superGhostRightAnim, this.xPos, this.yPos);
-                if (this.moveFrameCounter < 5) {
+                this.animation.animate(game.superGhostRightAnim, this.xPos, this.yPos,11);
+                if (this.moveFrameCounter < 11) {
                     this.moveFrameCounter += 1;
                 } else {
                     this.moveFrameCounter = 0;
@@ -197,8 +197,8 @@ class Ghost {
                 break;
             case 'down':
                 this.lineOfSight();
-                this.animation.animate(game.superGhostDownAnim, this.xPos, this.yPos);
-                if (this.moveFrameCounter < 5) {
+                this.animation.animate(game.superGhostDownAnim, this.xPos, this.yPos,11);
+                if (this.moveFrameCounter < 11) {
                     this.moveFrameCounter += 1;
                 } else {
                     this.moveFrameCounter = 0;
@@ -217,8 +217,8 @@ class Ghost {
                 break;
             case 'up':
                 this.lineOfSight();
-                this.animation.animate(game.superGhostUpAnim, this.xPos, this.yPos);
-                if (this.moveFrameCounter < 5) {
+                this.animation.animate(game.superGhostUpAnim, this.xPos, this.yPos,11);
+                if (this.moveFrameCounter < 11) {
                     this.moveFrameCounter += 1;
                 } else {
                     this.moveFrameCounter = 0;

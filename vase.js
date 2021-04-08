@@ -13,6 +13,7 @@ class Vase {
     }
 
     collect() {
+        game.vaseSFX.play();
         this.isCollected = true;
     }
 }

@@ -36,15 +36,17 @@ plan :
 -create a fail state for when the player is seen (game should reset)-DONE
 -create win state for when player reaches the door- DONE
 -create a level loader to load different level configurations and wire it up to win state -DONE
-
-TODAY
--add new levels-(add as I got to test functionality of new elements).
--add plant that blocks line of sight.-add image and ge to render in position-DONE-dont let the player walk in to it-DONE-dont let the ghosts see through it-done-
+-add new levels-(add as I got to test functionality of new elements)._DONE
+-add plant that blocks line of sight.-add image and ge to render in position-DONE-dont let the player walk in to it-DONE-dont let the ghosts see through it-DONE-
 -add a patrolling ghost type.-DONE 
--add start screen.
- TOMORROW
+-add start screen.-DONE
+ 
+ TODAY
 -add sound
+-add music 
 -add end screen
+-add dynamically spawning ghosts
+-change sprites for super ghosts
 
 
  
