@@ -46,7 +46,7 @@ p > span {
 .info-display {
   font-family: "Times New Roman", Times, serif;
   color: red;
-  height: 550px;
+  height: 530px;
   width: 200px;
   border: 5px solid red;
   border-radius: 25px;
@@ -59,7 +59,7 @@ p > span {
 .how-to {
   font-family: "Times New Roman", Times, serif;
   color: chartreuse;
-  height: 550px;
+  height: 580px;
   width: 200px;
   border: 5px solid chartreuse;
   border-radius: 25px;

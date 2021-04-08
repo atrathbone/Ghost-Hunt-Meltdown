@@ -34,7 +34,6 @@ function preload() {
 }
 
 function keyPressed() {
-  console.log(`key:${key} key code:${keyCode}`)
   if(isStarted=== false){
     if (keyCode === ENTER){
       game.music.loop();
