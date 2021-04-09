@@ -1,8 +1,8 @@
-#Ghost Hunt Meltdown:
+# Ghost Hunt Meltdown:
 
 An in-browser game built using p5js as part of a week-long project as part of a Web Development course in April 2021.
 
-##Description:
+## Description:
 A grid based stealth game where you control a man trying to recover his Vase collection without being seen by ghosts!
 
 *Players have to navigate various levels populated with obstacles and haunted by ghosts.
@@ -13,7 +13,7 @@ A grid based stealth game where you control a man trying to recover his Vase col
 -Super Ghosts- which move left and right, or up and down.
 -Demonic Ghosts- which teleport at random to various spawn points dotted around the level.
 
-##Level Editor-
+## Level Editor-
 
 The game levels are stored in 2dimensional arrays like so:
 
