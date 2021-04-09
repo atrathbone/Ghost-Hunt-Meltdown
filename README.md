@@ -1,6 +1,6 @@
 # Ghost Hunt Meltdown:
 
-An in-browser game built using p5js as part of a week-long project as part of a Web Development course in April 2021.
+An in-browser game built using p5js for a week-long project as part of a Web Development course in April 2021.
 
 ## Description:
 A grid based stealth game where you control a man trying to recover his Vase collection without being seen by ghosts!
