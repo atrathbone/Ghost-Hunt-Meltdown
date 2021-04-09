@@ -12,7 +12,6 @@ class Ghost {
         if (this.superOrNot === false) {
             this.normalBehaviour();
         } else {
-            console.log('super ghost added')
             this.superBehaviour();
         }
     }
@@ -244,13 +243,11 @@ class Ghost {
 
         for (let i = 0; i < game.boxes.indexes.length; i++) {
             if (game.boxes.indexes[i].toString() === myIStr) {
-                console.log('you cant move');
                 ifHeCanMove = false;
             }
         }
         for (let i = 0; i < game.plant.indexes.length; i++) {
             if (game.plant.indexes[i].toString() === myIStr) {
-                console.log('you cant move');
                 ifHeCanMove = false;
             }
         }
