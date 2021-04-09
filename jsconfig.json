@@ -3,5 +3,5 @@
     "*.js",
     "libraries/*.js",
     "/home/atrathbone/.vscode-server/extensions/samplavigne.p5-vscode-1.2.6/p5types/global.d.ts"
-  ]
+, "src/animation.js"  ]
 }
