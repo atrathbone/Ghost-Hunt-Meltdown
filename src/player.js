@@ -148,6 +148,9 @@ class Player {
                     if (this.hasCollected === true) {
                         game.loadNextLevel();
                     }
+                    if (this.hasCollected === false) {
+                        game.shouldDrawText = true; 
+                    }
                     return;
                 }
             }

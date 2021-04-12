@@ -1,8 +1,10 @@
 class Game {
     constructor() {
         this.levels = new Levels();
+        
     }
     setup() {
+        this.shouldDrawText = false; 
         this.currentLevel = this.levels.levelList[this.levels.currentLevelIndex];
         this.player = new Player();
         this.boxes = new Box();
@@ -24,6 +26,7 @@ class Game {
         this.music = loadSound('assets/GHM-music.ogg');
         this.doorSFX = loadSound('assets/sfx/door.ogg')
         this.deathSFX = loadSound('assets/sfx/death.ogg');
+        this.vaseText = loadImage('assets/individual-images/myVaseText.png');
         this.vaseSFX = loadSound('assets/sfx/vase.ogg');
         this.demonicGhostSFX = loadSound('assets/sfx/demented-ghost.ogg');
         this.backgroundImage = loadImage('assets/individual-images/floor.png');
@@ -189,6 +192,9 @@ class Game {
             ghost.draw();
         })
         this.plant.draw();
+        if(this.shouldDrawText === true){
+            image(this.vaseText, 0,0,100,50);
+        }
     }
     levelParser(level, gameObjectString) {
         let indexes = [];
@@ -236,6 +242,7 @@ class Game {
             game.doorSFX.play();
             this.levels.currentLevelIndex = 0;
         }
+        this.shouldDrawText = false; 
         this.setup();
     }
 }
