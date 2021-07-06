@@ -1,15 +1,17 @@
 # Ghost Hunt Meltdown:
 
+deployed version: https://atrathbone.github.io/Ghost-Hunt-Meltdown/
+
 An in-browser game built using p5js for a week-long project as part of a Web Development course in April 2021.
 
 ## Description:
 A grid based stealth game where you control a man trying to recover his Vase collection without being seen by ghosts!
 
 Players have to navigate various levels populated with obstacles and haunted by ghosts. Each level has a door which the player must reach after collecting a vase. Boxes block player movement but do not hide them from the ghosts, whereas plants give them somewhere to hide.
->There are three ghost types:
->>Normal Ghosts- which stand still and look along either the x or y axis.
->>Super Ghosts- which move left and right, or up and down.
->>Demonic Ghosts- which teleport at random to various spawn points dotted around the level.
+There are three ghost types:
+Normal Ghosts- which stand still and look along either the x or y axis.
+Super Ghosts- which move left and right, or up and down.
+Demonic Ghosts- which teleport at random to various spawn points dotted around the level.
 
 ## Level Editor-
 
